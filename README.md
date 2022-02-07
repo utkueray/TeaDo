@@ -6,7 +6,12 @@ TeaDo is a to do app which runs on a backend service that utilizes Django framew
 - Django 3.1
 - Django REST Framework
 
-## Installation
+## All in one installation
+1. [Install Docker Compose](https://docs.docker.com/compose/install/)
+2. Clone this repository
+3. Run all containers with `docker-compose up`
+
+## Alternative Installation
 After you cloned the repository, you want to create a virtual environment, so you have a clean python installation.
 You can do this by running the command
 ```
