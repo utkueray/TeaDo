@@ -2,7 +2,7 @@
 TeaDo is a to do app which runs on a backend service that utilizes Django framework as well as stores database on Firebase.
 
 ## Requirements
-- Python 3.6
+- Python 3.9+
 - Django 3.1
 - Django REST Framework
 
