@@ -7,4 +7,4 @@ services:
             - ./django_tea_do:/django_tea_do
         ports:
             - 8000:8000
-        command: bash -c "cd ./django_tea_do && pip install -r requirements.txt && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+        command: bash -c "cd ./django_tea_do && pip install -r requirements.txt&& python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"

@@ -2,9 +2,11 @@ from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from tea_do.serializers import TeaDoSerializer
-from tea_do.models import TeaDo
+from tea_do.serializers import *
+from tea_do.models import *
 import json
+
+'''
 import pyrebase
 
 config = {
@@ -33,6 +35,17 @@ def index(request, format=None):
             'framework':framework
         }
         return render(request, 'index.html', context)
+'''
+
+@api_view(['POST'])
+def init(request):
+    if request.method == 'POST':
+        serializer = InitSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET'])
 def list(request):
