@@ -78,6 +78,5 @@ def remove(request):
         except TeaDo.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
-        if request.method == 'POST':
-            teaDo.delete()
-            return Response(status=status.HTTP_204_NO_CONTENT)
+        teaDo.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
