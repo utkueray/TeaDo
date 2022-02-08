@@ -35,7 +35,7 @@ def index(request, format=None):
         return render(request, 'index.html', context)
 
 @api_view(['GET'])
-def list(request, format=None):
+def list(request):
     if request.method == 'GET':
         teaDo = TeaDo.objects.all()
         serializer = TeaDoSerializer(teaDo, many=True)
