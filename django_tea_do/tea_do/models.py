@@ -1,6 +1,7 @@
 from django.db import models
 
 class TeaDo(models.Model):
+    id = models.Model.pk
     title = models.CharField(max_length = 100)
     body = models.CharField(max_length = 100)
     is_completed = models.BooleanField(default=False)

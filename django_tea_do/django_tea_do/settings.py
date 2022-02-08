@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tea_do',
     'rest_framework',
+    'coreapi'
 ]
 
 MIDDLEWARE = [
@@ -74,6 +75,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_tea_do.wsgi.application'
 
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+}
+
+APPEND_SLASH=False
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases

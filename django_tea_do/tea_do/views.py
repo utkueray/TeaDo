@@ -1,10 +1,10 @@
 from django.shortcuts import render
-from rest_framework.generics import ListAPIView
-from rest_framework.generics import CreateAPIView
-from rest_framework.generics import DestroyAPIView
-from rest_framework.generics import UpdateAPIView
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from tea_do.serializers import TeaDoSerializer
 from tea_do.models import TeaDo
+import json
 import pyrebase
 
 config = {
@@ -22,7 +22,7 @@ firebase = pyrebase.initialize_app(config)
 authe = firebase.auth()
 database = firebase.database()
 
-def index(request):
+def index(request, format=None):
         name = database.child('Data').child('Name').get().val()
         stack = database.child('Data').child('Stack').get().val()
         framework = database.child('Data').child('Framework').get().val()
@@ -34,22 +34,50 @@ def index(request):
         }
         return render(request, 'index.html', context)
 
-class ListAPIView(ListAPIView):
-    """This endpoint list all of the available todos from the database"""
-    queryset = TeaDo.objects.all()
-    serializer_class = TeaDoSerializer
+@api_view(['GET'])
+def list(request, format=None):
+    if request.method == 'GET':
+        teaDo = TeaDo.objects.all()
+        serializer = TeaDoSerializer(teaDo, many=True)
+        return Response(serializer.data)
 
-class CreateAPIView(CreateAPIView):
-    """This endpoint allows for creation of a todo"""
-    queryset = TeaDo.objects.all()
-    serializer_class = TeaDoSerializer
+@api_view(['POST'])
+def create(request):
+    if request.method == 'POST':
+        serializer = TeaDoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class UpdateAPIView(UpdateAPIView):
-    """This endpoint allows for updating a specific todo by passing in the id of the todo to update"""
-    queryset = TeaDo.objects.all()
-    serializer_class = TeaDoSerializer
+@api_view(['POST'])
+def update(request):
+    if request.method == 'POST':
+        try:
+            body_unicode = request.body.decode('utf-8')
+            body = json.loads(body_unicode)
+            teaDo_id = body['id']
+            teaDo = TeaDo.objects.get(pk=teaDo_id)
+        except TeaDo.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
-class DeleteAPIView(DestroyAPIView):
-    """This endpoint allows for deletion of a specific Todo from the database"""
-    queryset = TeaDo.objects.all()
-    serializer_class = TeaDoSerializer
+        serializer = TeaDoSerializer(teaDo, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+def remove(request):
+    if request.method == 'POST':
+        try:
+            body_unicode = request.body.decode('utf-8')
+            body = json.loads(body_unicode)
+            teaDo_id = body['id']
+            teaDo = TeaDo.objects.get(pk=teaDo_id)
+        except TeaDo.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        if request.method == 'POST':
+            teaDo.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
