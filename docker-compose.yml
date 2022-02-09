@@ -2,9 +2,17 @@ version: '3'
 
 services:
     python:
-        image: python:3.9
+        image: python:3.9-slim
         volumes:
             - ./django_tea_do:/django_tea_do
         ports:
             - 8000:8000
-        command: bash -c "cd ./django_tea_do && pip install -r requirements.txt&& python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    
+        # Make migrations
+        #command: bash -c "cd ./django_tea_do && pip install -r requirements.txt && python manage.py makemigrations tea_do"
+        
+        # Migrate
+        #command: bash -c "cd ./django_tea_do && pip install -r requirements.txt && python manage.py migrate"
+        
+        # Run
+        command: bash -c "cd ./django_tea_do && pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"

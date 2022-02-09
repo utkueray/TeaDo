@@ -1,3 +1,4 @@
+from http import cookies
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -6,46 +7,34 @@ from tea_do.serializers import *
 from tea_do.models import *
 import json
 
-'''
-import pyrebase
-
-config = {
-    "apiKey": "AIzaSyAq2B7WmmxTlyUuQIk9aC9XzPirxdBXNRI",
-    "authDomain": "teado-e6cb4.firebaseapp.com",
-    "projectId": "teado-e6cb4",
-    "storageBucket": "teado-e6cb4.appspot.com",
-    "messagingSenderId": "948596075451",
-    "appId": "1:948596075451:web:1672b8b8a17bbe1f62b29e",
-    "measurementId": "G-SE1SPN9FXM",
-    "databaseURL": "https://teado-e6cb4-default-rtdb.europe-west1.firebasedatabase.app/"
-}
-
-firebase = pyrebase.initialize_app(config)
-authe = firebase.auth()
-database = firebase.database()
-
-def index(request, format=None):
-        name = database.child('Data').child('Name').get().val()
-        stack = database.child('Data').child('Stack').get().val()
-        framework = database.child('Data').child('Framework').get().val()
-    
-        context = {
-            'name':name,
-            'stack':stack,
-            'framework':framework
-        }
-        return render(request, 'index.html', context)
-'''
+@api_view(['GET'])
+def users(request):
+    if request.method == 'GET':
+        if 'uuid' in request.COOKIES:
+            uuid = request.COOKIES.get('uuid')
+            
+            users = User.objects.filter(pk=uuid)
+            serializer = UserSerializer(users, many=True)
+            return Response(serializer.data)
+        return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
 
 @api_view(['POST'])
-def init(request):
+def createUser(request):
     if request.method == 'POST':
-        serializer = InitSerializer(data=request.data)
+        try:
+            body_unicode = request.body.decode('utf-8')
+            body = json.loads(body_unicode)
+            uuid = body['uuid']
+        except TeaDo.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            response = Response(serializer.data, status=status.HTTP_201_CREATED)
+            response.set_cookie('uuid', uuid)
+            return response
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 @api_view(['GET'])
 def list(request):
