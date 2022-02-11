@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96A1BDB727B563A800AA3E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1BDB627B563A800AA3E24 /* AppDelegate.swift */; };
+		96A1BDC027B563A900AA3E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96A1BDBF27B563A900AA3E24 /* Assets.xcassets */; };
+		96A1BDC327B563A900AA3E24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A1BDC127B563A900AA3E24 /* LaunchScreen.storyboard */; };
+		96EB28FA27B565BC00631D9B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 96EB28F927B565BC00631D9B /* SnapKit */; };
+		96EB290627B5683A00631D9B /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB28FF27B5683A00631D9B /* MainPresenter.swift */; };
+		96EB290727B5683A00631D9B /* MainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB290027B5683A00631D9B /* MainWorker.swift */; };
+		96EB290827B5683A00631D9B /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB290127B5683A00631D9B /* MainRouter.swift */; };
+		96EB290927B5683A00631D9B /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB290227B5683A00631D9B /* MainModels.swift */; };
+		96EB290A27B5683A00631D9B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB290327B5683A00631D9B /* MainViewController.swift */; };
+		96EB290B27B5683A00631D9B /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB290427B5683A00631D9B /* MainInteractor.swift */; };
+		96EB290C27B5683A00631D9B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB290527B5683A00631D9B /* MainView.swift */; };
+		96EB291027B5687600631D9B /* TDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB290F27B5687600631D9B /* TDView.swift */; };
+		96EB292027B5690000631D9B /* TDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB291F27B5690000631D9B /* TDLabel.swift */; };
+		96EB292327B569B200631D9B /* TDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB292227B569B200631D9B /* TDViewController.swift */; };
+		96EB292527B56A4700631D9B /* TDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB292427B56A4700631D9B /* TDNavigationController.swift */; };
+		96EB292E27B56F0900631D9B /* AppWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB292727B56F0900631D9B /* AppWorker.swift */; };
+		96EB292F27B56F0900631D9B /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB292827B56F0900631D9B /* AppRouter.swift */; };
+		96EB293027B56F0900631D9B /* AppModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB292927B56F0900631D9B /* AppModels.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		96A1BDB327B563A800AA3E24 /* TeaDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeaDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96A1BDB627B563A800AA3E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96A1BDBF27B563A900AA3E24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96A1BDC227B563A900AA3E24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96A1BDC427B563A900AA3E24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96EB28FF27B5683A00631D9B /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		96EB290027B5683A00631D9B /* MainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWorker.swift; sourceTree = "<group>"; };
+		96EB290127B5683A00631D9B /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		96EB290227B5683A00631D9B /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
+		96EB290327B5683A00631D9B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		96EB290427B5683A00631D9B /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		96EB290527B5683A00631D9B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		96EB290F27B5687600631D9B /* TDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDView.swift; sourceTree = "<group>"; };
+		96EB291F27B5690000631D9B /* TDLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDLabel.swift; sourceTree = "<group>"; };
+		96EB292227B569B200631D9B /* TDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDViewController.swift; sourceTree = "<group>"; };
+		96EB292427B56A4700631D9B /* TDNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDNavigationController.swift; sourceTree = "<group>"; };
+		96EB292727B56F0900631D9B /* AppWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWorker.swift; sourceTree = "<group>"; };
+		96EB292827B56F0900631D9B /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		96EB292927B56F0900631D9B /* AppModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModels.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96A1BDB027B563A800AA3E24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96EB28FA27B565BC00631D9B /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96A1BDAA27B563A800AA3E24 = {
+			isa = PBXGroup;
+			children = (
+				96A1BDB527B563A800AA3E24 /* TeaDo */,
+				96A1BDB427B563A800AA3E24 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		96A1BDB427B563A800AA3E24 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96A1BDB327B563A800AA3E24 /* TeaDo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96A1BDB527B563A800AA3E24 /* TeaDo */ = {
+			isa = PBXGroup;
+			children = (
+				96EB28FB27B5662E00631D9B /* Application */,
+				96EB290D27B5685800631D9B /* Core */,
+				96EB28FC27B5663900631D9B /* Scenes */,
+				96EB28FE27B5666E00631D9B /* Resources */,
+				96EB28FD27B5664C00631D9B /* Supporting Files */,
+			);
+			path = TeaDo;
+			sourceTree = "<group>";
+		};
+		96EB28F627B5656400631D9B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				96EB290527B5683A00631D9B /* MainView.swift */,
+				96EB290327B5683A00631D9B /* MainViewController.swift */,
+				96EB290427B5683A00631D9B /* MainInteractor.swift */,
+				96EB28FF27B5683A00631D9B /* MainPresenter.swift */,
+				96EB290227B5683A00631D9B /* MainModels.swift */,
+				96EB290127B5683A00631D9B /* MainRouter.swift */,
+				96EB290027B5683A00631D9B /* MainWorker.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		96EB28F727B5656C00631D9B /* Note */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		96EB28FB27B5662E00631D9B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				96A1BDB627B563A800AA3E24 /* AppDelegate.swift */,
+				96EB292827B56F0900631D9B /* AppRouter.swift */,
+				96EB292927B56F0900631D9B /* AppModels.swift */,
+				96EB292727B56F0900631D9B /* AppWorker.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		96EB28FC27B5663900631D9B /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				96EB28F627B5656400631D9B /* Main */,
+				96EB28F727B5656C00631D9B /* Note */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		96EB28FD27B5664C00631D9B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				96A1BDC127B563A900AA3E24 /* LaunchScreen.storyboard */,
+				96A1BDC427B563A900AA3E24 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		96EB28FE27B5666E00631D9B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				96A1BDBF27B563A900AA3E24 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		96EB290D27B5685800631D9B /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				96EB290E27B5685E00631D9B /* View */,
+				96EB292127B569A400631D9B /* Controller */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		96EB290E27B5685E00631D9B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				96EB290F27B5687600631D9B /* TDView.swift */,
+				96EB291F27B5690000631D9B /* TDLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		96EB292127B569A400631D9B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				96EB292227B569B200631D9B /* TDViewController.swift */,
+				96EB292427B56A4700631D9B /* TDNavigationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		96A1BDB227B563A800AA3E24 /* TeaDo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96A1BDC727B563A900AA3E24 /* Build configuration list for PBXNativeTarget "TeaDo" */;
+			buildPhases = (
+				96A1BDAF27B563A800AA3E24 /* Sources */,
+				96A1BDB027B563A800AA3E24 /* Frameworks */,
+				96A1BDB127B563A800AA3E24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TeaDo;
+			packageProductDependencies = (
+				96EB28F927B565BC00631D9B /* SnapKit */,
+			);
+			productName = TeaDo;
+			productReference = 96A1BDB327B563A800AA3E24 /* TeaDo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96A1BDAB27B563A800AA3E24 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					96A1BDB227B563A800AA3E24 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 96A1BDAE27B563A800AA3E24 /* Build configuration list for PBXProject "TeaDo" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 96A1BDAA27B563A800AA3E24;
+			packageReferences = (
+				96EB28F827B565BC00631D9B /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
+			productRefGroup = 96A1BDB427B563A800AA3E24 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96A1BDB227B563A800AA3E24 /* TeaDo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96A1BDB127B563A800AA3E24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96A1BDC327B563A900AA3E24 /* LaunchScreen.storyboard in Resources */,
+				96A1BDC027B563A900AA3E24 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96A1BDAF27B563A800AA3E24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96EB292327B569B200631D9B /* TDViewController.swift in Sources */,
+				96EB292527B56A4700631D9B /* TDNavigationController.swift in Sources */,
+				96EB290A27B5683A00631D9B /* MainViewController.swift in Sources */,
+				96EB290C27B5683A00631D9B /* MainView.swift in Sources */,
+				96EB290827B5683A00631D9B /* MainRouter.swift in Sources */,
+				96EB291027B5687600631D9B /* TDView.swift in Sources */,
+				96EB292E27B56F0900631D9B /* AppWorker.swift in Sources */,
+				96EB292F27B56F0900631D9B /* AppRouter.swift in Sources */,
+				96EB290927B5683A00631D9B /* MainModels.swift in Sources */,
+				96EB290627B5683A00631D9B /* MainPresenter.swift in Sources */,
+				96EB290727B5683A00631D9B /* MainWorker.swift in Sources */,
+				96A1BDB727B563A800AA3E24 /* AppDelegate.swift in Sources */,
+				96EB292027B5690000631D9B /* TDLabel.swift in Sources */,
+				96EB290B27B5683A00631D9B /* MainInteractor.swift in Sources */,
+				96EB293027B56F0900631D9B /* AppModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		96A1BDC127B563A900AA3E24 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				96A1BDC227B563A900AA3E24 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		96A1BDC527B563A900AA3E24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		96A1BDC627B563A900AA3E24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		96A1BDC827B563A900AA3E24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LR3AA4S2ZE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TeaDo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TeaDo;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.utkueray.TeaDo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96A1BDC927B563A900AA3E24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LR3AA4S2ZE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TeaDo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TeaDo;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.utkueray.TeaDo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96A1BDAE27B563A800AA3E24 /* Build configuration list for PBXProject "TeaDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96A1BDC527B563A900AA3E24 /* Debug */,
+				96A1BDC627B563A900AA3E24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96A1BDC727B563A900AA3E24 /* Build configuration list for PBXNativeTarget "TeaDo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96A1BDC827B563A900AA3E24 /* Debug */,
+				96A1BDC927B563A900AA3E24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		96EB28F827B565BC00631D9B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96EB28F927B565BC00631D9B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96EB28F827B565BC00631D9B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 96A1BDAB27B563A800AA3E24 /* Project object */;
+}
