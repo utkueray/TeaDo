@@ -1,10 +1,5 @@
 from rest_framework import serializers
-from tea_do.models import *
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = "__all__"
+from tea_do.models import TeaDo
 
 class TeaDoSerializer(serializers.ModelSerializer):
     class Meta:
