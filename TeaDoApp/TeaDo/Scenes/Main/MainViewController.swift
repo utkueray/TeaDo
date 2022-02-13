@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol MainDisplayLogic: AnyObject {
     func displaySuccess(viewModel: MainScene.Main.ViewModel)
@@ -31,6 +32,33 @@ class MainViewController: TDViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
+        
+        let uuid = UIDevice.current.identifierForVendor!.uuidString
+        
+        let listRequest = ListRequest(uuid: uuid)
+        TeaDoMiddlewareClient.shared.request(route: .list(request: listRequest), responseType: ListResponse.self) { (response, error, errorDescription) in
+            print(response?.data?.count)
+
+        }
+        
+//        let createRequest = CreateRequest(title: "Test",
+//                                          body: "Body Test",
+//                                          is_note: false,
+//                                          is_completed: false,
+//                                          uuid: uuid)
+//
+//        TeaDoMiddlewareClient.shared.request(route: .create(request: createRequest), responseType: ListResponse.self) { (response, error, errorDescription) in
+//            print(response?.data?.count)
+//
+//        }
+        
+//        let params: [String: Any] = ["uuid": uuid]
+//        let headers = HTTPHeaders([HTTPHeader(name: "Content-Type", value: "application/json")])
+//
+//        AF.request("http://localhost:8000/api/v1/teado/list/", method: .post, parameters: params, headers: headers)
+//            .responseDecodable(of: ListResponse.self) { dataResponse in
+//                print(dataResponse)
+//            }
     }
     
     override func viewWillAppear(_ animated: Bool) {

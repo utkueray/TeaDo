@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96555EE327B941BD00062826 /* TeaDoMiddlewareClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EDE27B941BD00062826 /* TeaDoMiddlewareClient.swift */; };
+		96555EE427B941BD00062826 /* TeaDoMiddlewareConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EDF27B941BD00062826 /* TeaDoMiddlewareConfiguration.swift */; };
+		96555EE527B941BD00062826 /* TeaDoMiddlewareRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EE027B941BD00062826 /* TeaDoMiddlewareRouter.swift */; };
+		96555EE627B941BD00062826 /* TeaDoMiddlewareError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EE127B941BD00062826 /* TeaDoMiddlewareError.swift */; };
+		96555EE727B941BD00062826 /* TeaDoMiddlewareLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EE227B941BD00062826 /* TeaDoMiddlewareLogger.swift */; };
+		96555EEA27B9420200062826 /* TeaDoRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EE827B9420200062826 /* TeaDoRequestModel.swift */; };
+		96555EEB27B9420200062826 /* TeaDoRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EE927B9420200062826 /* TeaDoRequestHeader.swift */; };
+		96555EEE27B9420C00062826 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EEC27B9420C00062826 /* Serializable.swift */; };
+		96555EEF27B9420C00062826 /* TeaDoResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EED27B9420C00062826 /* TeaDoResponseModel.swift */; };
+		96555EF427B9421700062826 /* UpdateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EF027B9421600062826 /* UpdateRequest.swift */; };
+		96555EF527B9421700062826 /* ListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EF127B9421600062826 /* ListRequest.swift */; };
+		96555EF627B9421700062826 /* CreateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EF227B9421600062826 /* CreateRequest.swift */; };
+		96555EF727B9421700062826 /* DeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EF327B9421600062826 /* DeleteRequest.swift */; };
+		96555EFA27B9425000062826 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 96555EF927B9425000062826 /* Alamofire */; };
+		96555EFC27B9470300062826 /* ListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EFB27B9470300062826 /* ListResponse.swift */; };
+		96555EFF27B95DD800062826 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EFE27B95DD800062826 /* List.swift */; };
 		96A1BDB727B563A800AA3E24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A1BDB627B563A800AA3E24 /* AppDelegate.swift */; };
 		96A1BDC027B563A900AA3E24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96A1BDBF27B563A900AA3E24 /* Assets.xcassets */; };
 		96A1BDC327B563A900AA3E24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96A1BDC127B563A900AA3E24 /* LaunchScreen.storyboard */; };
@@ -28,6 +44,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		96555EDE27B941BD00062826 /* TeaDoMiddlewareClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareClient.swift; sourceTree = "<group>"; };
+		96555EDF27B941BD00062826 /* TeaDoMiddlewareConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareConfiguration.swift; sourceTree = "<group>"; };
+		96555EE027B941BD00062826 /* TeaDoMiddlewareRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareRouter.swift; sourceTree = "<group>"; };
+		96555EE127B941BD00062826 /* TeaDoMiddlewareError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareError.swift; sourceTree = "<group>"; };
+		96555EE227B941BD00062826 /* TeaDoMiddlewareLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareLogger.swift; sourceTree = "<group>"; };
+		96555EE827B9420200062826 /* TeaDoRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoRequestModel.swift; sourceTree = "<group>"; };
+		96555EE927B9420200062826 /* TeaDoRequestHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoRequestHeader.swift; sourceTree = "<group>"; };
+		96555EEC27B9420C00062826 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		96555EED27B9420C00062826 /* TeaDoResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoResponseModel.swift; sourceTree = "<group>"; };
+		96555EF027B9421600062826 /* UpdateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateRequest.swift; sourceTree = "<group>"; };
+		96555EF127B9421600062826 /* ListRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRequest.swift; sourceTree = "<group>"; };
+		96555EF227B9421600062826 /* CreateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRequest.swift; sourceTree = "<group>"; };
+		96555EF327B9421600062826 /* DeleteRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteRequest.swift; sourceTree = "<group>"; };
+		96555EFB27B9470300062826 /* ListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResponse.swift; sourceTree = "<group>"; };
+		96555EFE27B95DD800062826 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		96A1BDB327B563A800AA3E24 /* TeaDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeaDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96A1BDB627B563A800AA3E24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96A1BDBF27B563A900AA3E24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,12 +86,91 @@
 			buildActionMask = 2147483647;
 			files = (
 				96EB28FA27B565BC00631D9B /* SnapKit in Frameworks */,
+				96555EFA27B9425000062826 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96555ED727B9414900062826 /* Middleware */ = {
+			isa = PBXGroup;
+			children = (
+				96555ED827B9415A00062826 /* Models */,
+				96555EDE27B941BD00062826 /* TeaDoMiddlewareClient.swift */,
+				96555EDF27B941BD00062826 /* TeaDoMiddlewareConfiguration.swift */,
+				96555EE127B941BD00062826 /* TeaDoMiddlewareError.swift */,
+				96555EE227B941BD00062826 /* TeaDoMiddlewareLogger.swift */,
+				96555EE027B941BD00062826 /* TeaDoMiddlewareRouter.swift */,
+			);
+			path = Middleware;
+			sourceTree = "<group>";
+		};
+		96555ED827B9415A00062826 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96555ED927B9416300062826 /* Base */,
+				96555EDA27B9416700062826 /* Request */,
+				96555EDB27B9416D00062826 /* Response */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		96555ED927B9416300062826 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				96555EDC27B9417D00062826 /* Request */,
+				96555EDD27B9418200062826 /* Response */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		96555EDA27B9416700062826 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				96555EF227B9421600062826 /* CreateRequest.swift */,
+				96555EF327B9421600062826 /* DeleteRequest.swift */,
+				96555EF127B9421600062826 /* ListRequest.swift */,
+				96555EF027B9421600062826 /* UpdateRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		96555EDB27B9416D00062826 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				96555EFD27B95DCA00062826 /* List */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		96555EDC27B9417D00062826 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				96555EE927B9420200062826 /* TeaDoRequestHeader.swift */,
+				96555EE827B9420200062826 /* TeaDoRequestModel.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		96555EDD27B9418200062826 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				96555EEC27B9420C00062826 /* Serializable.swift */,
+				96555EED27B9420C00062826 /* TeaDoResponseModel.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		96555EFD27B95DCA00062826 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				96555EFB27B9470300062826 /* ListResponse.swift */,
+				96555EFE27B95DD800062826 /* List.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		96A1BDAA27B563A800AA3E24 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +260,7 @@
 		96EB290D27B5685800631D9B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				96555ED727B9414900062826 /* Middleware */,
 				96EB290E27B5685E00631D9B /* View */,
 				96EB292127B569A400631D9B /* Controller */,
 			);
@@ -192,6 +303,7 @@
 			name = TeaDo;
 			packageProductDependencies = (
 				96EB28F927B565BC00631D9B /* SnapKit */,
+				96555EF927B9425000062826 /* Alamofire */,
 			);
 			productName = TeaDo;
 			productReference = 96A1BDB327B563A800AA3E24 /* TeaDo.app */;
@@ -223,6 +335,7 @@
 			mainGroup = 96A1BDAA27B563A800AA3E24;
 			packageReferences = (
 				96EB28F827B565BC00631D9B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				96555EF827B9425000062826 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 96A1BDB427B563A800AA3E24 /* Products */;
 			projectDirPath = "";
@@ -250,19 +363,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96555EF427B9421700062826 /* UpdateRequest.swift in Sources */,
 				96EB292327B569B200631D9B /* TDViewController.swift in Sources */,
+				96555EF727B9421700062826 /* DeleteRequest.swift in Sources */,
 				96EB292527B56A4700631D9B /* TDNavigationController.swift in Sources */,
 				96EB290A27B5683A00631D9B /* MainViewController.swift in Sources */,
 				96EB290C27B5683A00631D9B /* MainView.swift in Sources */,
+				96555EEB27B9420200062826 /* TeaDoRequestHeader.swift in Sources */,
 				96EB290827B5683A00631D9B /* MainRouter.swift in Sources */,
 				96EB291027B5687600631D9B /* TDView.swift in Sources */,
 				96EB292E27B56F0900631D9B /* AppWorker.swift in Sources */,
 				96EB292F27B56F0900631D9B /* AppRouter.swift in Sources */,
+				96555EE627B941BD00062826 /* TeaDoMiddlewareError.swift in Sources */,
+				96555EF627B9421700062826 /* CreateRequest.swift in Sources */,
+				96555EFC27B9470300062826 /* ListResponse.swift in Sources */,
+				96555EE527B941BD00062826 /* TeaDoMiddlewareRouter.swift in Sources */,
 				96EB290927B5683A00631D9B /* MainModels.swift in Sources */,
+				96555EEA27B9420200062826 /* TeaDoRequestModel.swift in Sources */,
 				96EB290627B5683A00631D9B /* MainPresenter.swift in Sources */,
 				96EB290727B5683A00631D9B /* MainWorker.swift in Sources */,
+				96555EE727B941BD00062826 /* TeaDoMiddlewareLogger.swift in Sources */,
+				96555EEF27B9420C00062826 /* TeaDoResponseModel.swift in Sources */,
+				96555EE327B941BD00062826 /* TeaDoMiddlewareClient.swift in Sources */,
+				96555EF527B9421700062826 /* ListRequest.swift in Sources */,
+				96555EFF27B95DD800062826 /* List.swift in Sources */,
 				96A1BDB727B563A800AA3E24 /* AppDelegate.swift in Sources */,
 				96EB292027B5690000631D9B /* TDLabel.swift in Sources */,
+				96555EEE27B9420C00062826 /* Serializable.swift in Sources */,
+				96555EE427B941BD00062826 /* TeaDoMiddlewareConfiguration.swift in Sources */,
 				96EB290B27B5683A00631D9B /* MainInteractor.swift in Sources */,
 				96EB293027B56F0900631D9B /* AppModels.swift in Sources */,
 			);
@@ -482,6 +610,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		96555EF827B9425000062826 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		96EB28F827B565BC00631D9B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -493,6 +629,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		96555EF927B9425000062826 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96555EF827B9425000062826 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		96EB28F927B565BC00631D9B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 96EB28F827B565BC00631D9B /* XCRemoteSwiftPackageReference "SnapKit" */;
