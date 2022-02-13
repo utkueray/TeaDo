@@ -25,11 +25,11 @@ public final class TeaDoMiddlewareClient {
                 self.apiLogger.logHttpRequest(urlRequest: urlRequest.urlRequest!, parameters: route.parameters.description)
                 
                 // Send request
-                AF.request(urlRequest).validate(statusCode: 200..<600)
-                    .responseDecodable(of: T.self) { dataResponse in
-                        // Log Response
-                        self.apiLogger.logHttpResponse(urlRequest: urlRequest.urlRequest!, response: dataResponse.response)
-
+                AF.request(urlRequest).validate(statusCode: 200..<600).responseString { stringResponse in
+                    // Log Success
+                    self.apiLogger.logHttpResponse(jsonResponse: stringResponse)
+                }
+                .responseDecodable(of: T.self) { dataResponse in
                         switch(dataResponse.result){
                         case .success(let result):
                             completion(result, nil, nil)

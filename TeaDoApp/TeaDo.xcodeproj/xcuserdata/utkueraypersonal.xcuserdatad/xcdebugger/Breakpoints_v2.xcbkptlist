@@ -23,32 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D81D9B53-D880-40FC-98CB-F7D54ED6B75F"
+            uuid = "02E659ED-AC99-411D-BC5E-79719A75444B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TeaDo/Core/Middleware/TeaDoMiddlewareRouter.swift"
+            filePath = "TeaDo/Core/Middleware/TeaDoMiddlewareLogger.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "asURLRequest()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FD715203-4DA7-4BB6-9688-213EAABAFDA5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TeaDo/Core/Middleware/TeaDoMiddlewareRouter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "asURLRequest()"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "logHttpResponse(jsonResponse:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

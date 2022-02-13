@@ -22,18 +22,17 @@ class MainView: TDView {
     
     // MARK: User Interface
     private func setupUI() {
-        addSubview(label)
+        addSubview(tableView)
         
         setNeedsUpdateConstraints()
         updateViewConstraints()
     }
     
-    lazy var label: TDLabel = {
-        let label = TDLabel()
-        label.text = "MainView"
-        label.textAlignment = .center
-        label.accessibilityIdentifier = "label"
-        return label
+    lazy var tableView: TDTableView = {
+        let tableView = TDTableView()
+        
+        tableView.register(ToDoCell.self, forCellReuseIdentifier: String(describing: ToDoCell.self))
+        return tableView
     }()
 }
 
@@ -48,11 +47,11 @@ extension MainView {
     }
     
     private func setupConstraints() {
-        label.snp.makeConstraints({ (make) in
-            make.top.equalTo(snp.top)
+        tableView.snp.makeConstraints({ (make) in
+            make.top.equalTo(snp.topMargin)
             make.left.equalTo(snp.left)
-            make.bottom.equalTo(snp.bottom)
             make.right.equalTo(snp.right)
+            make.bottom.equalTo(snp.bottom)
         })
     }
 }
