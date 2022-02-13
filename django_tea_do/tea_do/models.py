@@ -9,7 +9,7 @@ class TeaDo(models.Model):
     is_completed = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add = True, auto_now = False)
     last_modified = models.DateTimeField(auto_now=True)
-    uuid = models.CharField(max_length=32)
+    uuid = models.CharField(max_length=36)
 
     def __str___(self):
         return self.id
