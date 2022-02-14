@@ -19,25 +19,46 @@ class NoteViewController: TDViewController {
     var router: (NSObjectProtocol & NoteRoutingLogic & NoteDataPassing)?
     var contentView: NoteView?
     
-    convenience init() {
+    convenience init(note: List?) {
         self.init(nibName:nil, bundle:nil)
+        if let note = note {
+            interactor?.note = note
+        }
+
         configure()
     }
     
     override func loadView() {
         super.loadView()
+        contentView?.bodyTextView.delegate = self
+        
         view = contentView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = TDColor.darkBackgroundColor
+
+        if let contentView = contentView {
+            contentView.backButton.addTarget(self,
+                                             action: #selector(dismissView(_:)),
+                                             for: .touchUpInside)
+            
+            let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+           view.addGestureRecognizer(tap)
+
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.updateBackgroundColor(backgroundColor: TDColor.darkBackgroundColor)
-        self.navigationItem.titleView = nil
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 }
 
@@ -56,8 +77,33 @@ extension NoteViewController: NoteDisplayLogic {
 
 // MARK: Methods
 extension NoteViewController {
-
     
+    func fetchNote() {
+        
+    }
+
+    @objc func dismissView(_ sender: AnyObject) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+// MARK: UITextViewDelegate
+extension NoteViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "What's on your mind ..?" {
+            textView.text = nil
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "What's on your mind ..?"
+        }
+    }
 }
 
 // MARK: VIP Configuration

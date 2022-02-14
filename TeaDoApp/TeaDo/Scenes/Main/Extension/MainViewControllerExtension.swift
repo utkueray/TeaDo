@@ -36,6 +36,8 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        router?.routeToNote()
+        if let note = interactor?.list?[indexPath.item] {
+            router?.routeToNote(note: note)
+        }
     }
 }

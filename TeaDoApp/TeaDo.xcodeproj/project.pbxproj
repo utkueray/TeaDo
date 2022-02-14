@@ -18,6 +18,7 @@
 		9644DA8E27BAE38400ADC3D0 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8727BAE38400ADC3D0 /* NoteViewController.swift */; };
 		9644DA8F27BAE38400ADC3D0 /* NoteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8827BAE38400ADC3D0 /* NoteInteractor.swift */; };
 		9644DA9027BAE38400ADC3D0 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8927BAE38400ADC3D0 /* NoteView.swift */; };
+		9644DA9227BAEB1100ADC3D0 /* TDFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA9127BAEB1100ADC3D0 /* TDFont.swift */; };
 		96555EE327B941BD00062826 /* TeaDoMiddlewareClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EDE27B941BD00062826 /* TeaDoMiddlewareClient.swift */; };
 		96555EE427B941BD00062826 /* TeaDoMiddlewareConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EDF27B941BD00062826 /* TeaDoMiddlewareConfiguration.swift */; };
 		96555EE527B941BD00062826 /* TeaDoMiddlewareRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EE027B941BD00062826 /* TeaDoMiddlewareRouter.swift */; };
@@ -69,6 +70,7 @@
 		9644DA8727BAE38400ADC3D0 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		9644DA8827BAE38400ADC3D0 /* NoteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteInteractor.swift; sourceTree = "<group>"; };
 		9644DA8927BAE38400ADC3D0 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		9644DA9127BAEB1100ADC3D0 /* TDFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDFont.swift; sourceTree = "<group>"; };
 		96555EDE27B941BD00062826 /* TeaDoMiddlewareClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareClient.swift; sourceTree = "<group>"; };
 		96555EDF27B941BD00062826 /* TeaDoMiddlewareConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareConfiguration.swift; sourceTree = "<group>"; };
 		96555EE027B941BD00062826 /* TeaDoMiddlewareRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareRouter.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				9644DA7D27BAAE8E00ADC3D0 /* TDHUDManager.swift */,
 				9644DA7F27BAB50A00ADC3D0 /* TDColor.swift */,
 				9644DA8127BABDC900ADC3D0 /* TDImage.swift */,
+				9644DA9127BAEB1100ADC3D0 /* TDFont.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				96555EEE27B9420C00062826 /* Serializable.swift in Sources */,
 				96555EE427B941BD00062826 /* TeaDoMiddlewareConfiguration.swift in Sources */,
 				9644DA8B27BAE38400ADC3D0 /* NoteWorker.swift in Sources */,
+				9644DA9227BAEB1100ADC3D0 /* TDFont.swift in Sources */,
 				96EB290B27B5683A00631D9B /* MainInteractor.swift in Sources */,
 				96EB293027B56F0900631D9B /* AppModels.swift in Sources */,
 			);

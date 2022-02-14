@@ -34,13 +34,12 @@ class MainViewController: TDViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = TDColor.darkBackgroundColor
+        fetchList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.updateBackgroundColor(backgroundColor: TDColor.darkBackgroundColor)
-
-        fetchList()
     }
 }
 

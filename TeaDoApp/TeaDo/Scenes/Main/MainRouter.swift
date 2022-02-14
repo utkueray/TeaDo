@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainRoutingLogic {
-    func routeToNote()
+    func routeToNote(note: List!)
 }
 
 protocol MainDataPassing {
@@ -20,8 +20,8 @@ class MainRouter: NSObject, MainRoutingLogic, MainDataPassing {
     weak var viewController: MainViewController?
     var dataStore: MainDataStore?
 
-    func routeToNote() {
-        let destinationViewController = NoteViewController()
+    func routeToNote(note: List!) {
+        let destinationViewController = NoteViewController(note: note)
 //        var destinationDataStore = destinationViewController.router!.dataStore!
 //        passDataToNoteScene(source: dataStore!, destination: &destinationDataStore)
         navigateToScene(source: viewController!, destination: destinationViewController)

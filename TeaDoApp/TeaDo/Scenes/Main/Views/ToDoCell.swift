@@ -12,19 +12,21 @@ class ToDoCell: TDTableViewCell {
         
     var titleLabel: TDLabel = {
         let label = TDLabel()
-        label.backgroundColor = .clear
         label.textColor = TDColor.darkTitleColor
+        label.font = TDFont.cellTitleFont
+        label.backgroundColor = .clear
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 24)
+        label.numberOfLines = 1
         return label
     }()
     
     var subTitleLabel: TDLabel = {
         let label = TDLabel()
-        label.backgroundColor = .clear
         label.textColor = TDColor.darkSubTitleColor
+        label.font = TDFont.cellSubTitleFont
+        label.backgroundColor = .clear
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.numberOfLines = 1
         return label
     }()
     

@@ -7,7 +7,7 @@
 //
 
 protocol NoteBusinessLogic {
-    var note: List? { get }
+    var note: List? { get set }
     func fetchNote(request: NoteScene.Note.Request)
 }
 
