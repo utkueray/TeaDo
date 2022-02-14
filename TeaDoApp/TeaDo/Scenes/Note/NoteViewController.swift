@@ -1,23 +1,23 @@
 //
-//  MainViewController.swift
+//  NoteViewController.swift
 //  TeaDo
 //
-//  Created by Utku Eray on 10.02.2022.
+//  Created by Utku Eray on 14.02.2022.
+//  Copyright (c) 2022 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
-import Alamofire
 
-protocol MainDisplayLogic: AnyObject {
-    func displaySuccess(viewModel: MainScene.Main.ViewModel)
+protocol NoteDisplayLogic: AnyObject {
+    func displaySuccess(viewModel: NoteScene.Note.ViewModel)
     func displayNetworkError(message: String)
 }
 
 // MARK: Initialize & view lifecycle
-class MainViewController: TDViewController {
-    var interactor: MainBusinessLogic?
-    var router: (NSObjectProtocol & MainRoutingLogic & MainDataPassing)?
-    var contentView: MainView?
+class NoteViewController: TDViewController {
+    var interactor: NoteBusinessLogic?
+    var router: (NSObjectProtocol & NoteRoutingLogic & NoteDataPassing)?
+    var contentView: NoteView?
     
     convenience init() {
         self.init(nibName:nil, bundle:nil)
@@ -26,8 +26,6 @@ class MainViewController: TDViewController {
     
     override func loadView() {
         super.loadView()
-        contentView?.tableView.delegate = self
-        contentView?.tableView.dataSource = self
         view = contentView
     }
     
@@ -39,17 +37,15 @@ class MainViewController: TDViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.updateBackgroundColor(backgroundColor: TDColor.darkBackgroundColor)
-
-        fetchList()
+        self.navigationItem.titleView = nil
     }
 }
 
 // MARK: Display logic
-extension MainViewController: MainDisplayLogic {
+extension NoteViewController: NoteDisplayLogic {
     
-    func displaySuccess(viewModel: MainScene.Main.ViewModel) {
-        successHUD()
-        contentView?.tableView.reloadData()
+    func displaySuccess(viewModel: NoteScene.Note.ViewModel) {
+        
     }
     
     func displayNetworkError(message: String) {
@@ -59,32 +55,28 @@ extension MainViewController: MainDisplayLogic {
 }
 
 // MARK: Methods
-extension MainViewController {
-    func fetchList() {
-        showHUD()
-        let request = MainScene.Main.Request(uuid: UIDevice.current.identifierForVendor!.uuidString)
-        interactor?.fetchList(request: request)
-    }
+extension NoteViewController {
+
     
 }
 
 // MARK: VIP Configuration
-extension MainViewController {
+extension NoteViewController {
     
     private func configure() {
         let viewController = self
         
-        let presenter = MainPresenter()
+        let presenter = NotePresenter()
         presenter.viewController = viewController
         
-        let interactor = MainInteractor()
+        let interactor = NoteInteractor()
         interactor.presenter = presenter
         
-        let router = MainRouter()
+        let router = NoteRouter()
         router.viewController = viewController
         router.dataStore = interactor
         
-        let view = MainView()
+        let view = NoteView()
 
         viewController.interactor = interactor
         viewController.router = router

@@ -10,9 +10,9 @@ import UIKit
 
 class TDNavigationController: UINavigationController {
     
-    init(rootViewController: UIViewController, bacgroundColor: UIColor = .gray) {
+    init(rootViewController: UIViewController, backgroundColor: UIColor = TDColor.darkBackgroundColor) {
         super.init(rootViewController: rootViewController)
-        self.navigationBar.setBackgroundImage(UIImage(color: bacgroundColor), for: .default)
+        self.navigationBar.setBackgroundImage(UIImage(color: backgroundColor), for: .default)
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -38,10 +38,13 @@ class TDNavigationController: UINavigationController {
 
 extension UINavigationController {
     
-    public func updateBackgroundColor(bacgroundColor: UIColor) {
-        self.navigationBar.setBackgroundImage(UIImage(color: bacgroundColor), for: .default)
-        self.navigationBar.shadowImage = UIImage(color: bacgroundColor)
-        self.navigationBar.backgroundColor = bacgroundColor
+    public func updateBackgroundColor(backgroundColor: UIColor) {
+        self.navigationBar.setBackgroundImage(UIImage(color: backgroundColor), for: .default)
+        self.navigationBar.tintColor = TDColor.darkComponentColor
+        self.navigationBar.shadowImage = UIImage(color: backgroundColor)
+        self.navigationBar.backgroundColor = backgroundColor
+        self.navigationBar.barTintColor = backgroundColor
+        self.navigationBar.isTranslucent = false
         self.navigationBar.isOpaque = true
     }
     

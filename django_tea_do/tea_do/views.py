@@ -38,16 +38,16 @@ def update(request):
         try:
             body_unicode = request.body.decode('utf-8')
             body = json.loads(body_unicode)
-            teaDo_id = body['uuid']
+            teaDo_id = body['id']
             teaDo = TeaDo.objects.get(pk=teaDo_id)
         except TeaDo.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+            return Response({'data', {}}, status=status.HTTP_404_NOT_FOUND)
 
         serializer = TeaDoSerializer(teaDo, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'data': serializer.data}, status=status.HTTP_200_OK)
+        return Response({'data', {}}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 def remove(request):

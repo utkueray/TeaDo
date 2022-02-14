@@ -6,7 +6,7 @@
 //
 
 protocol MainPresentationLogic {
-    func presentSomething(response: MainScene.Main.Response)
+    func presentSuccess(response: MainScene.Main.Response)
     func presentNetworkError(error: Error)
 }
 
@@ -14,8 +14,8 @@ protocol MainPresentationLogic {
 class MainPresenter: MainPresentationLogic {
     weak var viewController: MainDisplayLogic?
 
-    func presentSomething(response: MainScene.Main.Response) {
-        let viewModel = MainScene.Main.ViewModel()
+    func presentSuccess(response: MainScene.Main.Response) {
+        let viewModel = MainScene.Main.ViewModel(list: response.list)
         viewController?.displaySuccess(viewModel: viewModel)
     }
     

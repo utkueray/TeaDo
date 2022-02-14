@@ -1,14 +1,14 @@
 //
-//  MainView.swift
+//  NoteView.swift
 //  TeaDo
 //
-//  Created by Utku Eray on 10.02.2022.
+//  Created by Utku Eray on 14.02.2022.
+//  Copyright (c) 2022 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
 import UIKit
-import SnapKit
 
-class MainView: TDView {
+class NoteView: TDView {
 
     // MARK: Initialization
     override init(frame: CGRect) {
@@ -22,24 +22,23 @@ class MainView: TDView {
     
     // MARK: User Interface
     private func setupUI() {
-        addSubview(tableView)
+        addSubview(label)
         
         setNeedsUpdateConstraints()
         updateViewConstraints()
     }
     
-    lazy var tableView: TDTableView = {
-        let tableView = TDTableView()
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = .clear
-        
-        tableView.register(ToDoCell.self, forCellReuseIdentifier: String(describing: ToDoCell.self))
-        return tableView
+    lazy var label: TDLabel = {
+        let label = TDLabel()
+        label.text = "NoteView"
+        label.textAlignment = .center
+        label.accessibilityIdentifier = "label"
+        return label
     }()
 }
 
 // MARK: Auto Layout
-extension MainView {
+extension NoteView {
     
     private func updateViewConstraints() {
         if !didSetConstraints {
@@ -49,11 +48,11 @@ extension MainView {
     }
     
     private func setupConstraints() {
-        tableView.snp.makeConstraints({ (make) in
-            make.top.equalTo(snp.topMargin)
-            make.left.equalTo(snp.left).offset(16)
-            make.right.equalTo(snp.right).offset(-16)
+        label.snp.makeConstraints({ (make) in
+            make.top.equalTo(snp.top)
+            make.left.equalTo(snp.left)
             make.bottom.equalTo(snp.bottom)
+            make.right.equalTo(snp.right)
         })
     }
 }

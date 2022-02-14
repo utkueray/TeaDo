@@ -6,25 +6,27 @@
 //
 
 protocol MainBusinessLogic {
-    var someData: Array<String>? { get }
-    func doSomething(request: MainScene.Main.Request)
+    var list: [List]? { get }
+    func fetchList(request: MainScene.Main.Request)
 }
 
 protocol MainDataStore {
-    var data: Array<String>? { get set }
 }
 
 // MARK: Business logic
 class MainInteractor: MainBusinessLogic, MainDataStore {
     var presenter: MainPresentationLogic?
     var worker: MainWorker = MainWorker()
-    var someData: Array<String>?
-    var data: Array<String>?
+    var list: [List]? = []
 
-    func doSomething(request: MainScene.Main.Request) {
-        worker.sendMainRequest()
-      
-        let response = MainScene.Main.Response()
-        presenter?.presentSomething(response: response)
+    func fetchList(request: MainScene.Main.Request) {
+        worker.sendListRequest(request: request) { (response) in
+            if (response.error != nil) {
+                self.presenter?.presentNetworkError(error: response.error!)
+            } else {
+                self.list = response.list
+                self.presenter?.presentSuccess(response: response)
+            }
+        }
     }
 }

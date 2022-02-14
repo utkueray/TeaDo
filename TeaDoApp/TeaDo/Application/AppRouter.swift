@@ -19,6 +19,7 @@ final class AppRouter {
         splashController.view.backgroundColor = UIColor.black
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        window.backgroundColor = TDColor.darkBackgroundColor
         window?.rootViewController = splashController
         window?.makeKeyAndVisible()
         self.start()

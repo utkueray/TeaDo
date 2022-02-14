@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9644DA7B27BAAE4E00ADC3D0 /* ProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 9644DA7A27BAAE4E00ADC3D0 /* ProgressHUD */; };
+		9644DA7E27BAAE8E00ADC3D0 /* TDHUDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA7D27BAAE8E00ADC3D0 /* TDHUDManager.swift */; };
+		9644DA8027BAB50A00ADC3D0 /* TDColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA7F27BAB50A00ADC3D0 /* TDColor.swift */; };
+		9644DA8227BABDC900ADC3D0 /* TDImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8127BABDC900ADC3D0 /* TDImage.swift */; };
+		9644DA8A27BAE38400ADC3D0 /* NotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8327BAE38400ADC3D0 /* NotePresenter.swift */; };
+		9644DA8B27BAE38400ADC3D0 /* NoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8427BAE38400ADC3D0 /* NoteWorker.swift */; };
+		9644DA8C27BAE38400ADC3D0 /* NoteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8527BAE38400ADC3D0 /* NoteRouter.swift */; };
+		9644DA8D27BAE38400ADC3D0 /* NoteModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8627BAE38400ADC3D0 /* NoteModels.swift */; };
+		9644DA8E27BAE38400ADC3D0 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8727BAE38400ADC3D0 /* NoteViewController.swift */; };
+		9644DA8F27BAE38400ADC3D0 /* NoteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8827BAE38400ADC3D0 /* NoteInteractor.swift */; };
+		9644DA9027BAE38400ADC3D0 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8927BAE38400ADC3D0 /* NoteView.swift */; };
 		96555EE327B941BD00062826 /* TeaDoMiddlewareClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EDE27B941BD00062826 /* TeaDoMiddlewareClient.swift */; };
 		96555EE427B941BD00062826 /* TeaDoMiddlewareConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EDF27B941BD00062826 /* TeaDoMiddlewareConfiguration.swift */; };
 		96555EE527B941BD00062826 /* TeaDoMiddlewareRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EE027B941BD00062826 /* TeaDoMiddlewareRouter.swift */; };
@@ -48,6 +59,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9644DA7D27BAAE8E00ADC3D0 /* TDHUDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDHUDManager.swift; sourceTree = "<group>"; };
+		9644DA7F27BAB50A00ADC3D0 /* TDColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDColor.swift; sourceTree = "<group>"; };
+		9644DA8127BABDC900ADC3D0 /* TDImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDImage.swift; sourceTree = "<group>"; };
+		9644DA8327BAE38400ADC3D0 /* NotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePresenter.swift; sourceTree = "<group>"; };
+		9644DA8427BAE38400ADC3D0 /* NoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteWorker.swift; sourceTree = "<group>"; };
+		9644DA8527BAE38400ADC3D0 /* NoteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRouter.swift; sourceTree = "<group>"; };
+		9644DA8627BAE38400ADC3D0 /* NoteModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModels.swift; sourceTree = "<group>"; };
+		9644DA8727BAE38400ADC3D0 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		9644DA8827BAE38400ADC3D0 /* NoteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteInteractor.swift; sourceTree = "<group>"; };
+		9644DA8927BAE38400ADC3D0 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		96555EDE27B941BD00062826 /* TeaDoMiddlewareClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareClient.swift; sourceTree = "<group>"; };
 		96555EDF27B941BD00062826 /* TeaDoMiddlewareConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareConfiguration.swift; sourceTree = "<group>"; };
 		96555EE027B941BD00062826 /* TeaDoMiddlewareRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareRouter.swift; sourceTree = "<group>"; };
@@ -93,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9644DA7B27BAAE4E00ADC3D0 /* ProgressHUD in Frameworks */,
 				96EB28FA27B565BC00631D9B /* SnapKit in Frameworks */,
 				96555EFA27B9425000062826 /* Alamofire in Frameworks */,
 			);
@@ -101,6 +123,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9644DA7C27BAAE7700ADC3D0 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9644DA7D27BAAE8E00ADC3D0 /* TDHUDManager.swift */,
+				9644DA7F27BAB50A00ADC3D0 /* TDColor.swift */,
+				9644DA8127BABDC900ADC3D0 /* TDImage.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		96555ED727B9414900062826 /* Middleware */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +274,13 @@
 		96EB28F727B5656C00631D9B /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				9644DA8927BAE38400ADC3D0 /* NoteView.swift */,
+				9644DA8727BAE38400ADC3D0 /* NoteViewController.swift */,
+				9644DA8827BAE38400ADC3D0 /* NoteInteractor.swift */,
+				9644DA8427BAE38400ADC3D0 /* NoteWorker.swift */,
+				9644DA8327BAE38400ADC3D0 /* NotePresenter.swift */,
+				9644DA8527BAE38400ADC3D0 /* NoteRouter.swift */,
+				9644DA8627BAE38400ADC3D0 /* NoteModels.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -289,6 +328,7 @@
 				96555ED727B9414900062826 /* Middleware */,
 				96EB290E27B5685E00631D9B /* View */,
 				96EB292127B569A400631D9B /* Controller */,
+				9644DA7C27BAAE7700ADC3D0 /* Managers */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -332,6 +372,7 @@
 			packageProductDependencies = (
 				96EB28F927B565BC00631D9B /* SnapKit */,
 				96555EF927B9425000062826 /* Alamofire */,
+				9644DA7A27BAAE4E00ADC3D0 /* ProgressHUD */,
 			);
 			productName = TeaDo;
 			productReference = 96A1BDB327B563A800AA3E24 /* TeaDo.app */;
@@ -364,6 +405,7 @@
 			packageReferences = (
 				96EB28F827B565BC00631D9B /* XCRemoteSwiftPackageReference "SnapKit" */,
 				96555EF827B9425000062826 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9644DA7927BAAE4E00ADC3D0 /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 			);
 			productRefGroup = 96A1BDB427B563A800AA3E24 /* Products */;
 			projectDirPath = "";
@@ -394,12 +436,16 @@
 				96555EF427B9421700062826 /* UpdateRequest.swift in Sources */,
 				96EB292327B569B200631D9B /* TDViewController.swift in Sources */,
 				96555EF727B9421700062826 /* DeleteRequest.swift in Sources */,
+				9644DA8D27BAE38400ADC3D0 /* NoteModels.swift in Sources */,
 				96EB292527B56A4700631D9B /* TDNavigationController.swift in Sources */,
+				9644DA8F27BAE38400ADC3D0 /* NoteInteractor.swift in Sources */,
+				9644DA8A27BAE38400ADC3D0 /* NotePresenter.swift in Sources */,
 				96555F0627B9830500062826 /* ToDoCell.swift in Sources */,
 				96EB290A27B5683A00631D9B /* MainViewController.swift in Sources */,
 				96EB290C27B5683A00631D9B /* MainView.swift in Sources */,
 				96555F0127B9825A00062826 /* TDTableView.swift in Sources */,
 				96555EEB27B9420200062826 /* TeaDoRequestHeader.swift in Sources */,
+				9644DA8C27BAE38400ADC3D0 /* NoteRouter.swift in Sources */,
 				96EB290827B5683A00631D9B /* MainRouter.swift in Sources */,
 				96EB291027B5687600631D9B /* TDView.swift in Sources */,
 				96555F0927B9837100062826 /* MainViewControllerExtension.swift in Sources */,
@@ -413,16 +459,22 @@
 				96EB290927B5683A00631D9B /* MainModels.swift in Sources */,
 				96555EEA27B9420200062826 /* TeaDoRequestModel.swift in Sources */,
 				96EB290627B5683A00631D9B /* MainPresenter.swift in Sources */,
+				9644DA9027BAE38400ADC3D0 /* NoteView.swift in Sources */,
+				9644DA7E27BAAE8E00ADC3D0 /* TDHUDManager.swift in Sources */,
 				96EB290727B5683A00631D9B /* MainWorker.swift in Sources */,
 				96555EE727B941BD00062826 /* TeaDoMiddlewareLogger.swift in Sources */,
+				9644DA8E27BAE38400ADC3D0 /* NoteViewController.swift in Sources */,
+				9644DA8227BABDC900ADC3D0 /* TDImage.swift in Sources */,
 				96555EEF27B9420C00062826 /* TeaDoResponseModel.swift in Sources */,
 				96555EE327B941BD00062826 /* TeaDoMiddlewareClient.swift in Sources */,
+				9644DA8027BAB50A00ADC3D0 /* TDColor.swift in Sources */,
 				96555EF527B9421700062826 /* ListRequest.swift in Sources */,
 				96555EFF27B95DD800062826 /* List.swift in Sources */,
 				96A1BDB727B563A800AA3E24 /* AppDelegate.swift in Sources */,
 				96EB292027B5690000631D9B /* TDLabel.swift in Sources */,
 				96555EEE27B9420C00062826 /* Serializable.swift in Sources */,
 				96555EE427B941BD00062826 /* TeaDoMiddlewareConfiguration.swift in Sources */,
+				9644DA8B27BAE38400ADC3D0 /* NoteWorker.swift in Sources */,
 				96EB290B27B5683A00631D9B /* MainInteractor.swift in Sources */,
 				96EB293027B56F0900631D9B /* AppModels.swift in Sources */,
 			);
@@ -642,6 +694,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9644DA7927BAAE4E00ADC3D0 /* XCRemoteSwiftPackageReference "ProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/relatedcode/ProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.0.0;
+			};
+		};
 		96555EF827B9425000062826 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -661,6 +721,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9644DA7A27BAAE4E00ADC3D0 /* ProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9644DA7927BAAE4E00ADC3D0 /* XCRemoteSwiftPackageReference "ProgressHUD" */;
+			productName = ProgressHUD;
+		};
 		96555EF927B9425000062826 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 96555EF827B9425000062826 /* XCRemoteSwiftPackageReference "Alamofire" */;
