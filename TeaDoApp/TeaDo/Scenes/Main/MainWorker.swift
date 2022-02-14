@@ -13,8 +13,16 @@ class MainWorker {
         
         let listRequest = ListRequest(uuid: request.uuid)
         TeaDoMiddlewareClient.shared.request(route: .list(request: listRequest), responseType: ListResponse.self) { (response, error, errorDescription) in
-            print(response?.data?.count as Any)
             let response = MainScene.Main.Response(list: response?.data, error: error)
+            completion(response)
+        }
+    }
+    
+    func sendDeleteRequest(request: MainScene.Delete.Request, completion: @escaping (MainScene.Delete.Response) -> Void) {
+        
+        let deleteRequest = DeleteRequest(id: request.id, uuid: request.uuid)
+        TeaDoMiddlewareClient.shared.request(route: .delete(request: deleteRequest), responseType: DeleteResponse.self) { (response, error, errorDescription) in
+            let response = MainScene.Delete.Response(result: response?.data, error: error)
             completion(response)
         }
     }

@@ -14,12 +14,27 @@ struct MainScene {
         }
 
         struct Response {
-            var list: [List]?
+            var list: [Note]?
             var error: Error?
         }
 
         struct ViewModel {
-            var list: [List]?
+            var list: [Note]?
+        }
+    }
+    
+    enum Delete {
+        struct Request {
+            var uuid: String!
+            var id: Int!
+        }
+
+        struct Response {
+            var result: Result?
+            var error: Error?
+        }
+
+        struct ViewModel {
         }
     }
 }

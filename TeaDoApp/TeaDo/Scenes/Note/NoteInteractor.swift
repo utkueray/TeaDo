@@ -7,24 +7,34 @@
 //
 
 protocol NoteBusinessLogic {
-    var note: List? { get set }
-    func fetchNote(request: NoteScene.Note.Request)
+    var note: Note? { get set }
+    func fetchNote(request: NoteScene.NoteFetch.Request)
+    func updateNote(request: NoteScene.Update.Request)
+    func createNote(request: NoteScene.Create.Request)
 }
 
 protocol NoteDataStore {
-    var note: List? { get }
+    var note: Note? { get }
 }
 
 // MARK: Business logic
 class NoteInteractor: NoteBusinessLogic, NoteDataStore {
     var presenter: NotePresentationLogic?
     var worker: NoteWorker = NoteWorker()
-    var note: List?
+    var note: Note?
 
-    func fetchNote(request: NoteScene.Note.Request) {
+    func fetchNote(request: NoteScene.NoteFetch.Request) {
         worker.sendNoteRequest()
       
-        let response = NoteScene.Note.Response()
+        let response = NoteScene.NoteFetch.Response()
         presenter?.presentSuccess(response: response)
+    }
+    
+    func updateNote(request: NoteScene.Update.Request) {
+        
+    }
+    
+    func createNote(request: NoteScene.Create.Request) {
+        
     }
 }

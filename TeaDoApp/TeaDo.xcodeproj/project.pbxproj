@@ -19,6 +19,8 @@
 		9644DA8F27BAE38400ADC3D0 /* NoteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8827BAE38400ADC3D0 /* NoteInteractor.swift */; };
 		9644DA9027BAE38400ADC3D0 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA8927BAE38400ADC3D0 /* NoteView.swift */; };
 		9644DA9227BAEB1100ADC3D0 /* TDFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA9127BAEB1100ADC3D0 /* TDFont.swift */; };
+		9644DA9527BAFC1000ADC3D0 /* DeleteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA9427BAFC1000ADC3D0 /* DeleteResponse.swift */; };
+		9644DA9727BAFC2000ADC3D0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9644DA9627BAFC2000ADC3D0 /* Result.swift */; };
 		96555EE327B941BD00062826 /* TeaDoMiddlewareClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EDE27B941BD00062826 /* TeaDoMiddlewareClient.swift */; };
 		96555EE427B941BD00062826 /* TeaDoMiddlewareConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EDF27B941BD00062826 /* TeaDoMiddlewareConfiguration.swift */; };
 		96555EE527B941BD00062826 /* TeaDoMiddlewareRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EE027B941BD00062826 /* TeaDoMiddlewareRouter.swift */; };
@@ -34,7 +36,7 @@
 		96555EF727B9421700062826 /* DeleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EF327B9421600062826 /* DeleteRequest.swift */; };
 		96555EFA27B9425000062826 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 96555EF927B9425000062826 /* Alamofire */; };
 		96555EFC27B9470300062826 /* ListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EFB27B9470300062826 /* ListResponse.swift */; };
-		96555EFF27B95DD800062826 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EFE27B95DD800062826 /* List.swift */; };
+		96555EFF27B95DD800062826 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555EFE27B95DD800062826 /* Note.swift */; };
 		96555F0127B9825A00062826 /* TDTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555F0027B9825A00062826 /* TDTableView.swift */; };
 		96555F0327B9829E00062826 /* TDTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555F0227B9829E00062826 /* TDTableViewCell.swift */; };
 		96555F0627B9830500062826 /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96555F0527B9830500062826 /* ToDoCell.swift */; };
@@ -71,6 +73,8 @@
 		9644DA8827BAE38400ADC3D0 /* NoteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteInteractor.swift; sourceTree = "<group>"; };
 		9644DA8927BAE38400ADC3D0 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		9644DA9127BAEB1100ADC3D0 /* TDFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDFont.swift; sourceTree = "<group>"; };
+		9644DA9427BAFC1000ADC3D0 /* DeleteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteResponse.swift; sourceTree = "<group>"; };
+		9644DA9627BAFC2000ADC3D0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		96555EDE27B941BD00062826 /* TeaDoMiddlewareClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareClient.swift; sourceTree = "<group>"; };
 		96555EDF27B941BD00062826 /* TeaDoMiddlewareConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareConfiguration.swift; sourceTree = "<group>"; };
 		96555EE027B941BD00062826 /* TeaDoMiddlewareRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeaDoMiddlewareRouter.swift; sourceTree = "<group>"; };
@@ -85,7 +89,7 @@
 		96555EF227B9421600062826 /* CreateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateRequest.swift; sourceTree = "<group>"; };
 		96555EF327B9421600062826 /* DeleteRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteRequest.swift; sourceTree = "<group>"; };
 		96555EFB27B9470300062826 /* ListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResponse.swift; sourceTree = "<group>"; };
-		96555EFE27B95DD800062826 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		96555EFE27B95DD800062826 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		96555F0027B9825A00062826 /* TDTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDTableView.swift; sourceTree = "<group>"; };
 		96555F0227B9829E00062826 /* TDTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDTableViewCell.swift; sourceTree = "<group>"; };
 		96555F0527B9830500062826 /* ToDoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
@@ -136,6 +140,15 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		9644DA9327BAFC0400ADC3D0 /* Delete */ = {
+			isa = PBXGroup;
+			children = (
+				9644DA9427BAFC1000ADC3D0 /* DeleteResponse.swift */,
+				9644DA9627BAFC2000ADC3D0 /* Result.swift */,
+			);
+			path = Delete;
+			sourceTree = "<group>";
+		};
 		96555ED727B9414900062826 /* Middleware */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +195,7 @@
 		96555EDB27B9416D00062826 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				9644DA9327BAFC0400ADC3D0 /* Delete */,
 				96555EFD27B95DCA00062826 /* List */,
 			);
 			path = Response;
@@ -209,7 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				96555EFB27B9470300062826 /* ListResponse.swift */,
-				96555EFE27B95DD800062826 /* List.swift */,
+				96555EFE27B95DD800062826 /* Note.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -437,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96555EF427B9421700062826 /* UpdateRequest.swift in Sources */,
+				9644DA9727BAFC2000ADC3D0 /* Result.swift in Sources */,
 				96EB292327B569B200631D9B /* TDViewController.swift in Sources */,
 				96555EF727B9421700062826 /* DeleteRequest.swift in Sources */,
 				9644DA8D27BAE38400ADC3D0 /* NoteModels.swift in Sources */,
@@ -469,10 +484,11 @@
 				9644DA8E27BAE38400ADC3D0 /* NoteViewController.swift in Sources */,
 				9644DA8227BABDC900ADC3D0 /* TDImage.swift in Sources */,
 				96555EEF27B9420C00062826 /* TeaDoResponseModel.swift in Sources */,
+				9644DA9527BAFC1000ADC3D0 /* DeleteResponse.swift in Sources */,
 				96555EE327B941BD00062826 /* TeaDoMiddlewareClient.swift in Sources */,
 				9644DA8027BAB50A00ADC3D0 /* TDColor.swift in Sources */,
 				96555EF527B9421700062826 /* ListRequest.swift in Sources */,
-				96555EFF27B95DD800062826 /* List.swift in Sources */,
+				96555EFF27B95DD800062826 /* Note.swift in Sources */,
 				96A1BDB727B563A800AA3E24 /* AppDelegate.swift in Sources */,
 				96EB292027B5690000631D9B /* TDLabel.swift in Sources */,
 				96555EEE27B9420C00062826 /* Serializable.swift in Sources */,

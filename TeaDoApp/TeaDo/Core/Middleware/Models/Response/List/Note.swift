@@ -7,7 +7,7 @@
 
 import Foundation
 
-class List: Codable {
+class Note: Codable {
     var listId: Int?
     var title: String?
     var body: String?

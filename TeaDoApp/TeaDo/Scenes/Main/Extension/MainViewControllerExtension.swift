@@ -27,8 +27,8 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ToDoCell.self), for:indexPath) as! ToDoCell
         
-        if let item = interactor?.list?[indexPath.item] {
-            cell.configure(title: item.title, subtitle: item.body)
+        if let item = interactor?.list?[indexPath.row] {
+            cell.configure(title: "\(item.listId)", subtitle: item.body)
         }
         
         return cell
@@ -36,8 +36,18 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let note = interactor?.list?[indexPath.item] {
+        if let note = interactor?.list?[indexPath.row] {
             router?.routeToNote(note: note)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let note = interactor?.list?[indexPath.row] {
+                deleteNote(id: note.listId)
+                interactor?.list?.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
         }
     }
 }

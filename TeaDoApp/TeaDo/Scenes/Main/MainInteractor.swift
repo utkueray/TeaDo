@@ -6,8 +6,9 @@
 //
 
 protocol MainBusinessLogic {
-    var list: [List]? { get }
+    var list: [Note]? { get set }
     func fetchList(request: MainScene.Main.Request)
+    func deleteNote(request: MainScene.Delete.Request)
 }
 
 protocol MainDataStore {
@@ -17,7 +18,7 @@ protocol MainDataStore {
 class MainInteractor: MainBusinessLogic, MainDataStore {
     var presenter: MainPresentationLogic?
     var worker: MainWorker = MainWorker()
-    var list: [List]? = []
+    var list: [Note]? = []
 
     func fetchList(request: MainScene.Main.Request) {
         worker.sendListRequest(request: request) { (response) in
@@ -26,6 +27,16 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
             } else {
                 self.list = response.list
                 self.presenter?.presentSuccess(response: response)
+            }
+        }
+    }
+    
+    func deleteNote(request: MainScene.Delete.Request) {
+        worker.sendDeleteRequest(request: request) { (response) in
+            if (response.error != nil) {
+                self.presenter?.presentNetworkError(error: response.error!)
+            } else {
+                self.presenter?.presentAfterDeletion(response: response)
             }
         }
     }

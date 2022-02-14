@@ -7,7 +7,7 @@
 //
 
 protocol NotePresentationLogic {
-    func presentSuccess(response: NoteScene.Note.Response)
+    func presentSuccess(response: NoteScene.NoteFetch.Response)
     func presentNetworkError(error: Error)
 }
 
@@ -15,8 +15,8 @@ protocol NotePresentationLogic {
 class NotePresenter: NotePresentationLogic {
     weak var viewController: NoteDisplayLogic?
 
-    func presentSuccess(response: NoteScene.Note.Response) {
-        let viewModel = NoteScene.Note.ViewModel()
+    func presentSuccess(response: NoteScene.NoteFetch.Response) {
+        let viewModel = NoteScene.NoteFetch.ViewModel()
         viewController?.displaySuccess(viewModel: viewModel)
     }
     

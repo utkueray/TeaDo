@@ -10,6 +10,7 @@ import Alamofire
 
 protocol MainDisplayLogic: AnyObject {
     func displaySuccess(viewModel: MainScene.Main.ViewModel)
+    func displayDeletion(viewModel: MainScene.Delete.ViewModel)
     func displayNetworkError(message: String)
 }
 
@@ -51,9 +52,15 @@ extension MainViewController: MainDisplayLogic {
         contentView?.tableView.reloadData()
     }
     
+    func displayDeletion(viewModel: MainScene.Delete.ViewModel) {
+        showHUD()
+        fetchList()
+    }
+    
     func displayNetworkError(message: String) {
         errorHUD()
         showError(message: message)
+        fetchList()
     }
 }
 
@@ -65,6 +72,11 @@ extension MainViewController {
         interactor?.fetchList(request: request)
     }
     
+    func deleteNote(id:Int!) {
+        let request = MainScene.Delete.Request(uuid: UIDevice.current.identifierForVendor!.uuidString,
+                                               id: id)
+        interactor?.deleteNote(request: request)
+    }
 }
 
 // MARK: VIP Configuration

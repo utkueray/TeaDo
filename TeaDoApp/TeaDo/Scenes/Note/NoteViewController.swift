@@ -9,7 +9,7 @@
 import UIKit
 
 protocol NoteDisplayLogic: AnyObject {
-    func displaySuccess(viewModel: NoteScene.Note.ViewModel)
+    func displaySuccess(viewModel: NoteScene.NoteFetch.ViewModel)
     func displayNetworkError(message: String)
 }
 
@@ -19,7 +19,7 @@ class NoteViewController: TDViewController {
     var router: (NSObjectProtocol & NoteRoutingLogic & NoteDataPassing)?
     var contentView: NoteView?
     
-    convenience init(note: List?) {
+    convenience init(note: Note?) {
         self.init(nibName:nil, bundle:nil)
         if let note = note {
             interactor?.note = note
@@ -65,7 +65,7 @@ class NoteViewController: TDViewController {
 // MARK: Display logic
 extension NoteViewController: NoteDisplayLogic {
     
-    func displaySuccess(viewModel: NoteScene.Note.ViewModel) {
+    func displaySuccess(viewModel: NoteScene.NoteFetch.ViewModel) {
         
     }
     

@@ -52,7 +52,7 @@ public enum TeaDoMiddlewareRouter: URLRequestConvertible {
         case .update:
             return "update/"
         case .delete:
-            return "delete/"
+            return "remove/"
         }
         
     }

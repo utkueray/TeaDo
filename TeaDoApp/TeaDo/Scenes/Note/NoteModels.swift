@@ -9,17 +9,46 @@
 struct NoteScene {
     
     // MARK: Use cases
-    enum Note {
+    enum NoteFetch {
         struct Request {
-            
+            var note: Note?
         }
 
         struct Response {
-
+            
         }
 
         struct ViewModel {
             
+        }
+    }
+    
+    enum Update {
+        struct Request {
+            var note: Note?
+        }
+
+        struct Response {
+            var list: [Note]?
+            var error: Error?
+        }
+
+        struct ViewModel {
+            
+        }
+    }
+    
+    enum Create {
+        struct Request {
+            var note: Note?
+        }
+
+        struct Response {
+            var list: [Note]?
+            var error: Error?
+        }
+
+        struct ViewModel {
         }
     }
 }

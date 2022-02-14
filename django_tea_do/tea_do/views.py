@@ -58,7 +58,9 @@ def remove(request):
             teaDo_id = body['id']
             teaDo = TeaDo.objects.get(pk=teaDo_id)
         except TeaDo.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+            return Response({'data': {'deleted':False}}, status=status.HTTP_404_NOT_FOUND)
 
         teaDo.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response({'data': 
+        {'id':teaDo_id,
+        'deleted':True}}, status=status.HTTP_200_OK)
