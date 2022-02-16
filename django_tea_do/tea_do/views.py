@@ -15,12 +15,12 @@ def list(request):
             uuidBody = body['uuid']
             teaDo = TeaDo.objects.filter(uuid = uuidBody)
         except TeaDo.DoesNotExist:
-            return Response({'data', {}}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'data', []}, status=status.HTTP_404_NOT_FOUND)
         
         if teaDo is not None:
             serializer = TeaDoSerializer(teaDo, many=True)
             return Response({'data': serializer.data}, status=status.HTTP_200_OK)
-    return Response({'data', {}}, status=status.HTTP_400_BAD_REQUEST)
+    return Response({'data', []}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 def create(request):
@@ -28,8 +28,8 @@ def create(request):
         serializer = TeaDoSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'data': serializer.data}, status=status.HTTP_201_CREATED)
-        return Response({'data', {}}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'data': [serializer.data]}, status=status.HTTP_201_CREATED)
+        return Response({'data', []}, status=status.HTTP_400_BAD_REQUEST)
         
 
 @api_view(['POST'])
@@ -41,13 +41,13 @@ def update(request):
             teaDo_id = body['id']
             teaDo = TeaDo.objects.get(pk=teaDo_id)
         except TeaDo.DoesNotExist:
-            return Response({'data', {}}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'data', []}, status=status.HTTP_404_NOT_FOUND)
 
         serializer = TeaDoSerializer(teaDo, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'data': serializer.data}, status=status.HTTP_200_OK)
-        return Response({'data', {}}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'data': [serializer.data]}, status=status.HTTP_200_OK)
+        return Response({'data', []}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 def remove(request):
