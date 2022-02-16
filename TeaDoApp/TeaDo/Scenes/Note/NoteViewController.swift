@@ -33,8 +33,8 @@ class NoteViewController: TDViewController {
     
     override func loadView() {
         super.loadView()
+        contentView?.titleTextField.delegate = self
         contentView?.bodyTextView.delegate = self
-        
         view = contentView
     }
     
@@ -43,13 +43,11 @@ class NoteViewController: TDViewController {
         view.backgroundColor = TDColor.darkBackgroundColor
 
         if let contentView = contentView {
-            contentView.backButton.addTarget(self,
-                                             action: #selector(dismissView(_:)),
-                                             for: .touchUpInside)
-            
-            let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-           view.addGestureRecognizer(tap)
+            contentView.backButton.addTarget(self, action: #selector(dismissView(_:)), for: .touchUpInside)
+            contentView.toggle.addTarget(self, action: #selector(updateIsNote(_:)), for: .valueChanged)
 
+            let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+           contentView.addGestureRecognizer(tap)
         }
     }
     
@@ -75,15 +73,18 @@ extension NoteViewController: NoteDisplayLogic {
         if let note = viewModel.note {
             contentView?.titleTextField.text = note.title
             contentView?.bodyTextView.text = note.body
+            contentView?.toggle.isOn = !(note.isNote ?? true)
         }
     }
     
     func displayUpdate(viewModel: NoteScene.Update.ViewModel) {
         hideHUD()
+        self.navigationController?.popViewController(animated: true)
     }
     
     func displayCreate(viewModel: NoteScene.Create.ViewModel) {
         addHUD()
+        self.navigationController?.popViewController(animated: true)
     }
     
     func displayNetworkError(message: String) {
@@ -99,11 +100,20 @@ extension NoteViewController {
         interactor?.fetchNote(note: self.note)
     }
     
+    func saveChanges() {
+        if self.note == nil {
+            createNote()
+        } else {
+            updateNote()
+        }
+    }
+    
     func updateNote() {
         if  let contentView = contentView,
             let note = self.note {
             note.title = contentView.titleTextField.text
             note.body = contentView.bodyTextView.text
+            note.isNote = !contentView.toggle.isOn
             
             let request = NoteScene.Update.Request(note: note)
             interactor?.updateNote(request: request)
@@ -111,15 +121,38 @@ extension NoteViewController {
     }
     
     func createNote() {
-        interactor?.fetchNote(note: self.note)
+        if  let contentView = contentView,
+            self.note == nil {
+            
+            let note = Note(listId: nil,
+                            title: contentView.titleTextField.text,
+                            body: contentView.bodyTextView.text,
+                            isNote: !contentView.toggle.isOn,
+                            isComplete: false,
+                            uuid: UIDevice.current.identifierForVendor!.uuidString)
+            
+            let request = NoteScene.Create.Request(note: note)
+            interactor?.createNote(request: request)
+        }
+    }
+    
+    @objc func updateIsNote(_ sender: UISwitch) {
+        updateNote()
     }
 
     @objc func dismissView(_ sender: AnyObject) {
-        self.navigationController?.popViewController(animated: true)
+        saveChanges()
     }
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+}
+
+// MARK: UITextFieldDelegate
+extension NoteViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateNote()
     }
 }
 
@@ -134,6 +167,8 @@ extension NoteViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "What's on your mind ..?"
+        } else {
+            updateNote()
         }
     }
 }

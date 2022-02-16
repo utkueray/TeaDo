@@ -21,6 +21,7 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
     var list: [Note]? = []
 
     func fetchList(request: MainScene.Main.Request) {
+        self.list?.removeAll()
         worker.sendListRequest(request: request) { (response) in
             if (response.error != nil) {
                 self.presenter?.presentNetworkError(error: response.error!)

@@ -35,12 +35,13 @@ class MainViewController: TDViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = TDColor.darkBackgroundColor
-        fetchList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.updateBackgroundColor(backgroundColor: TDColor.darkBackgroundColor)
+        addNavigationButton()
+        fetchList()
     }
 }
 
@@ -60,14 +61,13 @@ extension MainViewController: MainDisplayLogic {
     func displayNetworkError(message: String) {
         errorHUD()
         showError(message: message)
-        fetchList()
     }
 }
 
 // MARK: Methods
 extension MainViewController {
     func fetchList() {
-        showHUD()
+        showHUD()        
         let request = MainScene.Main.Request(uuid: UIDevice.current.identifierForVendor!.uuidString)
         interactor?.fetchList(request: request)
     }
@@ -76,6 +76,17 @@ extension MainViewController {
         let request = MainScene.Delete.Request(uuid: UIDevice.current.identifierForVendor!.uuidString,
                                                id: id)
         interactor?.deleteNote(request: request)
+    }
+    
+    func addNavigationButton() {
+        let addButton = UIBarButtonItem(image: TDImage.addButton, style: .plain, target: self, action: #selector(createNote(_:)))
+        addButton.tintColor = TDColor.logoColor
+        
+        self.navigationItem.rightBarButtonItem = addButton
+    }
+    
+    @objc func createNote(_ sender: AnyObject) {
+        router?.routeToNote(note: nil)
     }
 }
 

@@ -27,7 +27,10 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ToDoCell.self), for:indexPath) as! ToDoCell
         
         if let item = interactor?.list?[indexPath.row] {
-            cell.configure(title: item.title, subtitle: item.body)
+            cell.configure(title: item.title,
+                           subtitle: item.body,
+                           isNote: item.isNote ?? true,
+                           isCompleted: item.isCompleted ?? false)
         }
         
         return cell

@@ -8,7 +8,7 @@
 
 protocol NoteBusinessLogic {
     var note: Note? { get set }
-    func fetchNote(note: Note)
+    func fetchNote(note: Note?)
     func updateNote(request: NoteScene.Update.Request)
     func createNote(request: NoteScene.Create.Request)
 }
@@ -22,7 +22,7 @@ class NoteInteractor: NoteBusinessLogic, NoteDataStore {
     var worker: NoteWorker = NoteWorker()
     var note: Note?
 
-    func fetchNote(note: Note) {
+    func fetchNote(note: Note?) {
         let response = NoteScene.NoteFetch.Response(note: note)
         presenter?.presentSuccess(response: response)
     }

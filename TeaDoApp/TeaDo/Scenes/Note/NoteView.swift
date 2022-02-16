@@ -23,6 +23,8 @@ class NoteView: TDView {
     // MARK: User Interface
     private func setupUI() {
         addSubview(backButton)
+        addSubview(toggleLabel)
+        addSubview(toggle)
         addSubview(titleTextField)
         addSubview(bodyTextView)
         
@@ -34,6 +36,23 @@ class NoteView: TDView {
         let button = UIButton()
         button.setImage(TDImage.backButton, for: .normal)
         return button
+    }()
+    
+    lazy var toggle: UISwitch = {
+        let toggle = UISwitch()
+        toggle.onTintColor = TDColor.logoColor
+        return toggle
+    }()
+    
+    lazy var toggleLabel: TDLabel = {
+        let toggleLabel = TDLabel()
+        toggleLabel.textColor = TDColor.darkTitleColor
+        toggleLabel.font = TDFont.cellSubTitleFont
+        toggleLabel.backgroundColor = .clear
+        toggleLabel.textAlignment = .left
+        toggleLabel.numberOfLines = 1
+        toggleLabel.text = "Can be completed:"
+        return toggleLabel
     }()
     
     lazy var titleTextField: UITextField = {
@@ -61,6 +80,15 @@ class NoteView: TDView {
         textView.isUserInteractionEnabled = true
         return textView
     }()
+    
+    // MARK: Methods
+    func getLabelSize(with label: TDLabel) -> CGSize {
+        guard var size = label.text?.size(withAttributes: [NSAttributedString.Key.font: UIFont(name: label.font.fontName , size: label.font.pointSize)!]) else {
+            return .zero
+        }
+        size.width += 32.0
+        return size
+    }
 }
 
 // MARK: Auto Layout
@@ -83,13 +111,24 @@ extension NoteView {
         titleTextField.snp.makeConstraints { (make) in
             make.centerY.equalTo(backButton.snp.centerY)
             make.left.equalTo(backButton.snp.right).offset(8)
-            make.height.equalTo(48)
             make.right.equalTo(snp.right).offset(-16)
+            make.height.equalTo(48)
+        }
+        
+        toggleLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleTextField.snp.bottom).offset(16)
+            make.left.equalTo(backButton.snp.centerX)
+            make.size.equalTo(getLabelSize(with: toggleLabel))
+        }
+        
+        toggle.snp.makeConstraints { make in
+            make.centerY.equalTo(toggleLabel.snp.centerY)
+            make.left.equalTo(toggleLabel.snp.right).offset(4)
         }
         
         bodyTextView.snp.makeConstraints { make in
-            make.top.equalTo(backButton.snp.bottom).offset(8)
-            make.left.equalTo(backButton.snp.left)
+            make.top.equalTo(toggleLabel.snp.bottom).offset(16)
+            make.left.equalTo(backButton.snp.centerX)
             make.right.equalTo(titleTextField.snp.right)
             make.bottom.equalTo(snp.bottom)
         }
