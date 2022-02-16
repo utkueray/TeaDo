@@ -23,16 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7E4FFE90-3966-46F1-B415-AC6D1189D374"
+            uuid = "F9A115F4-5744-42BB-8B24-6DE5B99819B8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TeaDo/Core/Middleware/TeaDoMiddlewareRouter.swift"
+            filePath = "TeaDo/Scenes/Note/NoteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "asURLRequest()"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "displaySuccess(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

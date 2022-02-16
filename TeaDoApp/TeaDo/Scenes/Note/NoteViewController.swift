@@ -10,6 +10,8 @@ import UIKit
 
 protocol NoteDisplayLogic: AnyObject {
     func displaySuccess(viewModel: NoteScene.NoteFetch.ViewModel)
+    func displayUpdate(viewModel: NoteScene.Update.ViewModel)
+    func displayCreate(viewModel: NoteScene.Create.ViewModel)
     func displayNetworkError(message: String)
 }
 
@@ -18,11 +20,12 @@ class NoteViewController: TDViewController {
     var interactor: NoteBusinessLogic?
     var router: (NSObjectProtocol & NoteRoutingLogic & NoteDataPassing)?
     var contentView: NoteView?
+    var note: Note!
     
     convenience init(note: Note?) {
         self.init(nibName:nil, bundle:nil)
         if let note = note {
-            interactor?.note = note
+            self.note = note
         }
 
         configure()
@@ -54,6 +57,8 @@ class NoteViewController: TDViewController {
         super.viewWillAppear(animated)
         navigationController?.updateBackgroundColor(backgroundColor: TDColor.darkBackgroundColor)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        fetchNote()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,7 +71,19 @@ class NoteViewController: TDViewController {
 extension NoteViewController: NoteDisplayLogic {
     
     func displaySuccess(viewModel: NoteScene.NoteFetch.ViewModel) {
-        
+        hideHUD()
+        if let note = viewModel.note {
+            contentView?.titleTextField.text = note.title
+            contentView?.bodyTextView.text = note.body
+        }
+    }
+    
+    func displayUpdate(viewModel: NoteScene.Update.ViewModel) {
+        hideHUD()
+    }
+    
+    func displayCreate(viewModel: NoteScene.Create.ViewModel) {
+        addHUD()
     }
     
     func displayNetworkError(message: String) {
@@ -79,7 +96,22 @@ extension NoteViewController: NoteDisplayLogic {
 extension NoteViewController {
     
     func fetchNote() {
-        
+        interactor?.fetchNote(note: self.note)
+    }
+    
+    func updateNote() {
+        if  let contentView = contentView,
+            let note = self.note {
+            note.title = contentView.titleTextField.text
+            note.body = contentView.bodyTextView.text
+            
+            let request = NoteScene.Update.Request(note: note)
+            interactor?.updateNote(request: request)
+        }
+    }
+    
+    func createNote() {
+        interactor?.fetchNote(note: self.note)
     }
 
     @objc func dismissView(_ sender: AnyObject) {

@@ -11,15 +11,15 @@ struct NoteScene {
     // MARK: Use cases
     enum NoteFetch {
         struct Request {
-            var note: Note?
+            
         }
 
         struct Response {
-            
+            var note: Note?
         }
 
         struct ViewModel {
-            
+            var note: Note?
         }
     }
     
@@ -34,7 +34,7 @@ struct NoteScene {
         }
 
         struct ViewModel {
-            
+            var list: [Note]?
         }
     }
     
@@ -49,6 +49,7 @@ struct NoteScene {
         }
 
         struct ViewModel {
+            var list: [Note]?
         }
     }
 }

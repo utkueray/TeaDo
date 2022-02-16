@@ -20,7 +20,6 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 61.0
     }
-        
 }
 
 extension MainViewController: UITableViewDataSource {
@@ -28,7 +27,7 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ToDoCell.self), for:indexPath) as! ToDoCell
         
         if let item = interactor?.list?[indexPath.row] {
-            cell.configure(title: "\(item.listId)", subtitle: item.body)
+            cell.configure(title: item.title, subtitle: item.body)
         }
         
         return cell

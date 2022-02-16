@@ -26,5 +26,19 @@ class Note: Codable {
         case dateCreated = "date_created"
         case lastModified = "last_modified"
         case uuid
-    }    
+    }
+    
+    public init(listId: Int?,
+                title: String?,
+                body: String?,
+                isNote: Bool?,
+                isComplete: Bool?,
+                uuid: String?) {
+        self.listId = listId
+        self.title = title
+        self.body = body
+        self.isNote = isNote
+        self.isCompleted = isComplete
+        self.uuid = uuid
+    }
 }
