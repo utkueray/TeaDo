@@ -120,7 +120,7 @@ extension ToDoCell {
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(snp.top)
-            make.left.equalTo(snp.left)
+            make.left.equalTo(snp.left).offset(8)
             make.right.equalTo(snp.right).offset(-48)
             make.height.equalTo(30)
         }
@@ -128,7 +128,7 @@ extension ToDoCell {
         subTitleLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(4)
             make.left.equalTo(titleLabel.snp.left)
-            make.right.equalTo(snp.right).offset(-16)
+            make.right.equalTo(titleLabel.snp.right)
             make.height.equalTo(24)
         }
         

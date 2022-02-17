@@ -41,6 +41,7 @@ class NoteView: TDView {
     lazy var toggle: UISwitch = {
         let toggle = UISwitch()
         toggle.onTintColor = TDColor.logoColor
+        toggle.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         return toggle
     }()
     
@@ -123,7 +124,7 @@ extension NoteView {
         
         toggle.snp.makeConstraints { make in
             make.centerY.equalTo(toggleLabel.snp.centerY)
-            make.left.equalTo(toggleLabel.snp.right).offset(4)
+            make.left.equalTo(toggleLabel.snp.right)
         }
         
         bodyTextView.snp.makeConstraints { make in

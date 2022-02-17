@@ -162,6 +162,11 @@ extension NoteViewController {
 extension NoteViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
     }
+    
+    func textPasteConfigurationSupporting(_ textPasteConfigurationSupporting: UITextPasteConfigurationSupporting, performPasteOf attributedString: NSAttributedString, to textRange: UITextRange) -> UITextRange {
+        self.contentView?.titleTextField.replace(textRange, withText: attributedString.string)
+        return textRange
+    }
 }
 
 // MARK: UITextViewDelegate

@@ -4,7 +4,7 @@ from django.db import models
 class TeaDo(models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length = 100, null=True)
-    body = models.CharField(max_length = 100, null=True)
+    body = models.TextField(null=True)
     is_note = models.BooleanField(default=True)
     is_completed = models.BooleanField(default=False)
     date_created = models.DateTimeField(auto_now_add = True, auto_now = False)
