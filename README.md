@@ -2,12 +2,13 @@
    <img src="https://github.com/utkueray/TeaDo/blob/main/teaDo_logo.png?raw=true" alt="TeaDo"/>
 </p>
 
-TeaDo is a note-taking/to-do app which runs on a backend and databse service that utilizes Django framework. Client application developed in Swift 5, works with and above iOS 13.6 and runs on both iPhone and iPad. App is localized for both English and Turkish, app language is selected based on device's language preference.
+TeaDo is a note-taking/to-do app which runs on a backend and databse service that utilizes Django framework. Client application developed in Swift 5 with [Clean Swift Architecture](https://clean-swift.com) (a.k.a VIP) which is Uncle Bob's Clean Architecture, works with iOS 13.6+ and runs on both iPhone and iPad. App is localized for both English and Turkish, app language is selected automatically based on device's language preference.
 
 ## Backend Requirements
 - Python 3.9+
-- Django 3.1
-- Django REST Framework
+- Django 4.0.2
+- Django REST Framework 3.13.1
+- CoreApi 2.3.3
 
 ## All in one installation
 1. [Install Docker Compose](https://docs.docker.com/compose/install/)
