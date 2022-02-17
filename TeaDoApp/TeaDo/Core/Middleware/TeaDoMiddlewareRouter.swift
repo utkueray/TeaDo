@@ -116,18 +116,6 @@ public enum TeaDoMiddlewareRouter: URLRequestConvertible {
          urlRequest.setValue(headerItem.value, forHTTPHeaderField: headerItem.key)
          }
         
-        // Authorization
-        // if self.authenticationRequired && NYMiddlewareClient.shared.configuration.accessToken != nil {
-        //   let bearerToken = "Bearer " + (NYMiddlewareClient.shared.configuration.accessToken ?? "")
-        //   urlRequest.setValue(bearerToken, forHTTPHeaderField: "Authorization")
-        // }
-        
-        // ApiGateway Authorization
-        // if serviceType == .apigateway {
-        //  let bearerToken = "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-        //     urlRequest.setValue(bearerToken, forHTTPHeaderField: "Authorization")
-        // }
-        
         // Parameters
         switch parameters {
         case .body(let params):

@@ -45,7 +45,7 @@ class TDViewController: UIViewController {
         let titleLabel = TDLabel()
         titleLabel.font = TDFont.titleFont
         titleLabel.textColor = TDColor.subTitleColor
-        titleLabel.text = "teaDo"
+        titleLabel.text = NSLocalizedString("appName", comment: "")
         
         view.addSubview(imageView)
         view.addSubview(titleLabel)
@@ -71,7 +71,7 @@ class TDViewController: UIViewController {
 extension TDViewController {
     public func showError(message: String, completion: @escaping () -> Void) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("ok", comment: ""), style: .default, handler: { _ in
             completion()
         }))
         present(alert, animated: true, completion: nil)

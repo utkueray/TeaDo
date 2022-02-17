@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  TeaDo
+
+  Created by Utku Eray on 18.02.2022.
+  
+*/
+
+"appName" = "teaDo";
+"toggleTitle" = "Can be completed:";
+"title" = "Title";
+"bodyPlaceHolder" = "What's on your mind ..?";
+"ok" = "OK";
+"done" = "Done";
+"delete" = "Delete";
+"undo" = "Undo";

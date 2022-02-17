@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  TeaDo
+
+  Created by Utku Eray on 18.02.2022.
+  
+*/
+
+"appName" = "teaDo";
+"toggleTitle" = "Tamamlanabilir:";
+"title" = "Başlık";
+"bodyPlaceHolder" = "Aklında ne var ..?";
+"ok" = "Tamam";
+"done" = "Bitti";
+"delete" = "Sil";
+"undo" = "Bitmedi";

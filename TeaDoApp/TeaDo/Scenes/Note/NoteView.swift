@@ -52,7 +52,7 @@ class NoteView: TDView {
         toggleLabel.backgroundColor = .clear
         toggleLabel.textAlignment = .left
         toggleLabel.numberOfLines = 1
-        toggleLabel.text = "Can be completed:"
+        toggleLabel.text = NSLocalizedString("toggleTitle", comment: "")
         return toggleLabel
     }()
     
@@ -63,7 +63,7 @@ class NoteView: TDView {
         textField.backgroundColor = .clear
         textField.textAlignment = .left
         textField.attributedPlaceholder = NSAttributedString(
-            string: "Title",
+            string: NSLocalizedString("title", comment: ""),
             attributes: [NSAttributedString.Key.foregroundColor: TDColor.componentColor]
         )
         textField.isUserInteractionEnabled = true
@@ -77,7 +77,7 @@ class NoteView: TDView {
         textView.font = TDFont.bodyFont
         textView.backgroundColor = .clear
         textView.textAlignment = .left
-        textView.text = "What's on your mind ..?"
+        textView.text = NSLocalizedString("bodyPlaceHolder", comment: "")
         textView.isUserInteractionEnabled = true
         return textView
     }()

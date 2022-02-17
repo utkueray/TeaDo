@@ -65,14 +65,14 @@ extension MainViewController: UITableViewDataSource {
         var markNote: UIContextualAction!
         
         if !(note.isCompleted ?? false) {
-            markNote = UIContextualAction(style: .normal, title: "Done", handler: {
+            markNote = UIContextualAction(style: .normal, title: NSLocalizedString("done", comment: ""), handler: {
                 (action, sourceView, completionHandler) in
                 self.markNote(note: note, isCompleted: true)
                  completionHandler(true)
             })
             markNote.backgroundColor = TDColor.logoColor
         } else {
-            markNote = UIContextualAction(style: .normal, title: "Undo", handler: {
+            markNote = UIContextualAction(style: .normal, title: NSLocalizedString("undo", comment: ""), handler: {
                 (action, sourceView, completionHandler) in
                 self.markNote(note: note, isCompleted: false)
                  completionHandler(true)

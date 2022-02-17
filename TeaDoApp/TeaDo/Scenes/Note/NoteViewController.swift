@@ -101,7 +101,7 @@ extension NoteViewController {
     func saveChanges() {
         if !(contentView?.titleTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false &&
             (contentView?.bodyTextView.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ||
-             contentView?.bodyTextView.text == "What's on your mind ..?")) {
+             contentView?.bodyTextView.text == NSLocalizedString("bodyPlaceHolder", comment: ""))) {
             if self.note == nil {
                 createNote()
             } else {
@@ -172,14 +172,14 @@ extension NoteViewController: UITextFieldDelegate {
 // MARK: UITextViewDelegate
 extension NoteViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "What's on your mind ..?" {
+        if textView.text == NSLocalizedString("bodyPlaceHolder", comment: "") {
             textView.text = nil
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "What's on your mind ..?"
+            textView.text = NSLocalizedString("bodyPlaceHolder", comment: "")
         }
     }
 }
