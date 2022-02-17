@@ -1,5 +1,7 @@
-![TeaDo](https://github.com/utkueray/TeaDo/blob/main/teaDo_logo.png?raw=true)
-# TeaDo
+<p align="center">
+   <img src="https://github.com/utkueray/TeaDo/blob/main/teaDo_logo.png?raw=true" alt="TeaDo"/>
+</p>
+
 TeaDo is a note-taking/to-do app which runs on a backend and databse service that utilizes Django framework. Client application developed in Swift 5, works with and above iOS 13.6 and runs on both iPhone and iPad. App is localized for both English and Turkish, app language is selected based on device's language preference.
 
 ## Backend Requirements
@@ -32,4 +34,4 @@ pip install -r requirements.txt
 - Open TeaDoApp/TeaDo.xcodeproj
 - It may require to sign in with apple developer account under Project/TeaDo Target/Signing & Capabilities
 
-##App won't run with a real device since backend runs on local network which device won't be able to see. Instead you should use simulator to run the app.
+## App won't run with a real device since backend runs on local network which device won't be able to see. Instead you should use simulator to run the app.
