@@ -8,6 +8,7 @@
 protocol MainBusinessLogic {
     var list: [Note]? { get set }
     func fetchList(request: MainScene.Main.Request)
+    func updateNote(request: NoteScene.Update.Request)
     func deleteNote(request: MainScene.Delete.Request)
 }
 
@@ -28,6 +29,16 @@ class MainInteractor: MainBusinessLogic, MainDataStore {
                 self.list?.removeAll()
                 self.list = response.list
                 self.presenter?.presentSuccess(response: response)
+            }
+        }
+    }
+    
+    func updateNote(request: NoteScene.Update.Request) {
+        worker.sendUpdateRequest(request: request) { (response) in
+            if (response.error != nil) {
+                self.presenter?.presentNetworkError(error: response.error!)
+            } else {
+                self.presenter?.presentUpdate(response: response)
             }
         }
     }

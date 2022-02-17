@@ -23,6 +23,21 @@ struct MainScene {
         }
     }
     
+    enum Update {
+        struct Request {
+            var note: Note?
+        }
+
+        struct Response {
+            var list: [Note]?
+            var error: Error?
+        }
+
+        struct ViewModel {
+            var list: [Note]?
+        }
+    }
+    
     enum Delete {
         struct Request {
             var uuid: String!

@@ -7,6 +7,7 @@
 
 protocol MainPresentationLogic {
     func presentSuccess(response: MainScene.Main.Response)
+    func presentUpdate(response: NoteScene.Update.Response)
     func presentAfterDeletion(response: MainScene.Delete.Response)
     func presentNetworkError(error: Error)
 }
@@ -18,6 +19,11 @@ class MainPresenter: MainPresentationLogic {
     func presentSuccess(response: MainScene.Main.Response) {
         let viewModel = MainScene.Main.ViewModel(list: response.list)
         viewController?.displaySuccess(viewModel: viewModel)
+    }
+    
+    func presentUpdate(response: NoteScene.Update.Response) {
+        let viewModel = NoteScene.Update.ViewModel(list: response.list)
+        viewController?.displayUpdate(viewModel: viewModel)
     }
     
     func presentAfterDeletion(response: MainScene.Delete.Response) {

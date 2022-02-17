@@ -18,6 +18,20 @@ class MainWorker {
         }
     }
     
+    func sendUpdateRequest(request: NoteScene.Update.Request, completion: @escaping (NoteScene.Update.Response) -> Void) {
+        
+        let updateRequest = UpdateRequest(title: request.note?.title,
+                                          body: request.note?.body,
+                                          is_note: request.note?.isNote,
+                                          is_completed: request.note?.isCompleted,
+                                          id: request.note?.listId,
+                                          uuid: request.note?.uuid)
+        TeaDoMiddlewareClient.shared.request(route: .update(request: updateRequest), responseType: ListResponse.self) { (response, error, errorDescription) in
+            let response = NoteScene.Update.Response(list: response?.data, error: error)
+            completion(response)
+        }
+    }
+    
     func sendDeleteRequest(request: MainScene.Delete.Request, completion: @escaping (MainScene.Delete.Response) -> Void) {
         
         let deleteRequest = DeleteRequest(id: request.id, uuid: request.uuid)

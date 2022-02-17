@@ -10,6 +10,7 @@ import Alamofire
 
 protocol MainDisplayLogic: AnyObject {
     func displaySuccess(viewModel: MainScene.Main.ViewModel)
+    func displayUpdate(viewModel: NoteScene.Update.ViewModel)
     func displayDeletion(viewModel: MainScene.Delete.ViewModel)
     func displayNetworkError(message: String)
 }
@@ -53,6 +54,12 @@ extension MainViewController: MainDisplayLogic {
         contentView?.tableView.reloadData()
     }
     
+    func displayUpdate(viewModel: NoteScene.Update.ViewModel) {
+        hideHUD()
+        fetchList()
+        contentView?.tableView.reloadData()
+    }
+    
     func displayDeletion(viewModel: MainScene.Delete.ViewModel) {
         fetchList()
     }
@@ -76,6 +83,19 @@ extension MainViewController {
         let request = MainScene.Delete.Request(uuid: UIDevice.current.identifierForVendor!.uuidString,
                                                id: id)
         interactor?.deleteNote(request: request)
+    }
+    
+    func markNote(note: Note!) {
+        // Get Cell Reference to Change uploadedImageView
+        let note = Note(listId: note.listId,
+                        title:note.title,
+                        body:note.body,
+                        isNote: note.isNote,
+                        isComplete: true,
+                        uuid: note.uuid)
+        
+        let request = NoteScene.Update.Request(note: note)
+        interactor?.updateNote(request: request)
     }
     
     func addNavigationButton() {

@@ -44,12 +44,33 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+        switch editingStyle {
+        case .delete:
             if let note = interactor?.list?[indexPath.row] {
                 deleteNote(id: note.listId)
                 interactor?.list?.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
+            break
+        default:
+            break
         }
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard let note = interactor?.list?[indexPath.row] else {
+            return nil
+        }
+        
+        let markNote = UIContextualAction(style: .normal, title: "Done", handler: {
+            (action, sourceView, completionHandler) in
+            self.markNote(note: note)
+            completionHandler(true)
+        })
+        
+        markNote.backgroundColor = TDColor.logoColor
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [markNote])
+        return swipeConfiguration
     }
 }
