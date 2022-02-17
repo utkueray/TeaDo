@@ -11,7 +11,7 @@ import UIKit
 class ToDoCell: TDTableViewCell {
     var isNote: Bool!
     var isCompleted: Bool!
-    
+
     var statusButton: UIButton = {
         let button = UIButton()
         button.setImage(TDImage.logo?.withTintColor(.white), for: .normal)
@@ -46,10 +46,8 @@ class ToDoCell: TDTableViewCell {
     }()
     
     // MARK: Methods
-    func configure(title: String?, subtitle: String?, isNote: Bool, isCompleted: Bool) {
+    func configure(isNote: Bool, isCompleted: Bool) {
         self.didSetConstraints = false
-        self.titleLabel.text = title
-        self.subTitleLabel.text = subtitle
         self.isNote = isNote
         self.isCompleted = isCompleted
         
@@ -62,12 +60,30 @@ class ToDoCell: TDTableViewCell {
         setupUI()
     }
     
+    func setupTexts(title:String, subTitle:String, strikeThrough: Bool) {
+        let titleStrikeThrough =  NSMutableAttributedString(string: title)
+        titleStrikeThrough.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, titleStrikeThrough.length))
+
+        let subTitleStrikeThrough =  NSMutableAttributedString(string: subTitle)
+        subTitleStrikeThrough.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(0, subTitleStrikeThrough.length))
+
+        let titleRemovedAttributes =  NSMutableAttributedString(string: title)
+        titleRemovedAttributes.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, titleRemovedAttributes.length))
+
+        let subTitleRemovedAttributes =  NSMutableAttributedString(string: subTitle)
+        subTitleRemovedAttributes.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, subTitleRemovedAttributes.length))
+        
+        if strikeThrough {
+            self.titleLabel.attributedText = titleStrikeThrough
+            self.subTitleLabel.attributedText = subTitleStrikeThrough
+        } else {
+            self.titleLabel.attributedText = titleRemovedAttributes
+            self.subTitleLabel.attributedText = subTitleRemovedAttributes
+        }
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.titleLabel.text = ""
-        self.subTitleLabel.text = ""
-        self.isNote = false
-        self.isCompleted = false
     }
     
     // MARK: setupUI

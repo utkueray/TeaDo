@@ -27,10 +27,10 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ToDoCell.self), for:indexPath) as! ToDoCell
         
         if let item = interactor?.list?[indexPath.row] {
-            cell.configure(title: item.title,
-                           subtitle: item.body,
-                           isNote: item.isNote ?? true,
+            cell.configure(isNote: item.isNote ?? true,
                            isCompleted: item.isCompleted ?? false)
+            
+            cell.setupTexts(title: item.title ?? "", subTitle: item.body ?? "", strikeThrough: item.isCompleted ?? false)
         }
         
         return cell
@@ -58,17 +58,27 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        guard let note = interactor?.list?[indexPath.row] else {
+        guard let note = interactor?.list?[indexPath.row],
+              !(note.isNote ?? false) else {
             return nil
         }
+        var markNote: UIContextualAction!
         
-        let markNote = UIContextualAction(style: .normal, title: "Done", handler: {
-            (action, sourceView, completionHandler) in
-            self.markNote(note: note)
-            completionHandler(true)
-        })
-        
-        markNote.backgroundColor = TDColor.logoColor
+        if !(note.isCompleted ?? false) {
+            markNote = UIContextualAction(style: .normal, title: "Done", handler: {
+                (action, sourceView, completionHandler) in
+                self.markNote(note: note, isCompleted: true)
+                 completionHandler(true)
+            })
+            markNote.backgroundColor = TDColor.logoColor
+        } else {
+            markNote = UIContextualAction(style: .normal, title: "Undo", handler: {
+                (action, sourceView, completionHandler) in
+                self.markNote(note: note, isCompleted: false)
+                 completionHandler(true)
+            })
+            markNote.backgroundColor = TDColor.darkComponentColor
+        }
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [markNote])
         return swipeConfiguration

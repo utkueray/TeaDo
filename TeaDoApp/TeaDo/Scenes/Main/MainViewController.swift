@@ -85,14 +85,8 @@ extension MainViewController {
         interactor?.deleteNote(request: request)
     }
     
-    func markNote(note: Note!) {
-        // Get Cell Reference to Change uploadedImageView
-        let note = Note(listId: note.listId,
-                        title:note.title,
-                        body:note.body,
-                        isNote: note.isNote,
-                        isComplete: true,
-                        uuid: note.uuid)
+    func markNote(note: Note!, isCompleted: Bool!) {
+        note.isCompleted = isCompleted
         
         let request = NoteScene.Update.Request(note: note)
         interactor?.updateNote(request: request)
@@ -100,8 +94,7 @@ extension MainViewController {
     
     func addNavigationButton() {
         let addButton = UIBarButtonItem(image: TDImage.addButton, style: .plain, target: self, action: #selector(createNote(_:)))
-        addButton.tintColor = TDColor.logoColor
-        
+        addButton.tintColor = TDColor.darkTitleColor
         self.navigationItem.rightBarButtonItem = addButton
     }
     
