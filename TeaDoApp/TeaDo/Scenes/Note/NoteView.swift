@@ -79,6 +79,7 @@ class NoteView: TDView {
         textView.textAlignment = .left
         textView.text = NSLocalizedString("bodyPlaceHolder", comment: "")
         textView.isUserInteractionEnabled = true
+        textView.textContainerInset = UIEdgeInsets(top: 0.0, left: -3.0, bottom: 0.0, right: 0.0)
         return textView
     }()
     
