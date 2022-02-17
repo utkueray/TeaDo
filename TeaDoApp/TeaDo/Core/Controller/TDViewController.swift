@@ -16,7 +16,8 @@ class TDViewController: UIViewController {
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = TDImage.backButton
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.navigationItem.titleView = UIImageView.init(image: TDImage.logo)
+        
+        self.navigationItem.titleView = generateTitleView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +34,36 @@ class TDViewController: UIViewController {
         } else {
             return UIInterfaceOrientationMask.landscape
         }
+    }
+    
+    //MARK: Methods
+    
+    func generateTitleView() -> UIView {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 24))
+        let imageView = UIImageView(image: TDImage.logo)
+        
+        let titleLabel = TDLabel()
+        titleLabel.font = TDFont.titleFont
+        titleLabel.textColor = TDColor.subTitleColor
+        titleLabel.text = "teaDo"
+        
+        view.addSubview(imageView)
+        view.addSubview(titleLabel)
+        
+        imageView.snp.makeConstraints { make in
+            make.centerY.equalTo(view.snp.centerY)
+            make.left.equalTo(view.snp.left)
+            make.width.height.equalTo(32)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(imageView.snp.centerY)
+            make.left.equalTo(imageView.snp.right).offset(4)
+            make.right.equalTo(view.snp.right)
+            make.height.equalTo(32)
+        }
+        
+        return view
     }
 }
 

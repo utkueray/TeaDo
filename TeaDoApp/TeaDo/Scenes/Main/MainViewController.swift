@@ -35,12 +35,12 @@ class MainViewController: TDViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = TDColor.darkBackgroundColor
+        view.backgroundColor = TDColor.navigationBarColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.updateBackgroundColor(backgroundColor: TDColor.darkBackgroundColor)
+        navigationController?.updateBackgroundColor(backgroundColor: TDColor.navigationBarColor)
         addNavigationButton()
         fetchList()
     }
@@ -94,7 +94,7 @@ extension MainViewController {
     
     func addNavigationButton() {
         let addButton = UIBarButtonItem(image: TDImage.addButton, style: .plain, target: self, action: #selector(createNote(_:)))
-        addButton.tintColor = TDColor.darkTitleColor
+        addButton.tintColor = TDColor.titleColor
         self.navigationItem.rightBarButtonItem = addButton
     }
     

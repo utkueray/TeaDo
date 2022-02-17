@@ -21,7 +21,7 @@ class ToDoCell: TDTableViewCell {
     
     var titleLabel: TDLabel = {
         let label = TDLabel()
-        label.textColor = TDColor.darkTitleColor
+        label.textColor = TDColor.titleColor
         label.font = TDFont.cellTitleFont
         label.backgroundColor = .clear
         label.textAlignment = .left
@@ -31,7 +31,7 @@ class ToDoCell: TDTableViewCell {
     
     var subTitleLabel: TDLabel = {
         let label = TDLabel()
-        label.textColor = TDColor.darkSubTitleColor
+        label.textColor = TDColor.subTitleColor
         label.font = TDFont.cellSubTitleFont
         label.backgroundColor = .clear
         label.textAlignment = .left
@@ -41,7 +41,7 @@ class ToDoCell: TDTableViewCell {
     
     var seperator: TDView = {
         let view = TDView()
-        view.backgroundColor = TDColor.darkComponentColor
+        view.backgroundColor = TDColor.componentColor
         return view
     }()
     

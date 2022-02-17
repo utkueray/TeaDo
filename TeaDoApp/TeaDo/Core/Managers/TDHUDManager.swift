@@ -13,7 +13,7 @@ public class TDHUDManager {
     
     init() {
         ProgressHUD.animationType = .lineScaling
-        ProgressHUD.colorAnimation = TDColor.darkComponentColor
+        ProgressHUD.colorAnimation = TDColor.componentColor
     }
     
     public func showHUD() {

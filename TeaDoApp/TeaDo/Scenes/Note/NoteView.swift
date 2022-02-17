@@ -47,7 +47,7 @@ class NoteView: TDView {
     
     lazy var toggleLabel: TDLabel = {
         let toggleLabel = TDLabel()
-        toggleLabel.textColor = TDColor.darkTitleColor
+        toggleLabel.textColor = TDColor.titleColor
         toggleLabel.font = TDFont.cellSubTitleFont
         toggleLabel.backgroundColor = .clear
         toggleLabel.textAlignment = .left
@@ -58,13 +58,13 @@ class NoteView: TDView {
     
     lazy var titleTextField: UITextField = {
         let textField = UITextField()
-        textField.textColor = TDColor.darkTitleColor
+        textField.textColor = TDColor.titleColor
         textField.font = TDFont.titleFont
         textField.backgroundColor = .clear
         textField.textAlignment = .left
         textField.attributedPlaceholder = NSAttributedString(
             string: "Title",
-            attributes: [NSAttributedString.Key.foregroundColor: TDColor.darkComponentColor]
+            attributes: [NSAttributedString.Key.foregroundColor: TDColor.componentColor]
         )
         textField.isUserInteractionEnabled = true
         return textField
@@ -72,8 +72,8 @@ class NoteView: TDView {
     
     lazy var bodyTextView: UITextView = {
         let textView = UITextView()
-        textView.textColor = TDColor.darkSubTitleColor
-        textView.tintColor = TDColor.darkComponentColor
+        textView.textColor = TDColor.subTitleColor
+        textView.tintColor = TDColor.componentColor
         textView.font = TDFont.bodyFont
         textView.backgroundColor = .clear
         textView.textAlignment = .left

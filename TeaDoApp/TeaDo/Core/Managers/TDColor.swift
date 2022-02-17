@@ -16,9 +16,12 @@ struct TDColor {
 //    static let componentColor = subTitleColor
     
     //Dark Mode
-    static let logoColor = UIColor.green
-    static let darkBackgroundColor = UIColor(red: 58/255, green: 58/255, blue: 58/255, alpha: 1.0)
-    static let darkTitleColor = UIColor(red: 180/255, green: 181/255, blue: 184/255, alpha: 1.0)
-    static let darkSubTitleColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
-    static let darkComponentColor = UIColor(red: 87/255, green: 88/255, blue: 89/255, alpha: 1.0)
+    static let bodyColor = UIColor(named: "bodyColor")!
+    static let logoColor = UIColor(named: "logoColor")!
+    static let titleColor = UIColor(named: "titleColor")!
+    static let subTitleColor = UIColor(named: "subTitleColor")!
+    static let backgroundColor = UIColor(named: "backgroundColor")!
+    static let navigationBarColor = UIColor(named: "navigationBarColor")!
+    static let componentColor = UIColor(named: "componentColor")!
+    
 }

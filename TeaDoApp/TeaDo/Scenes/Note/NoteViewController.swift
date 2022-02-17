@@ -40,7 +40,7 @@ class NoteViewController: TDViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = TDColor.darkBackgroundColor
+        view.backgroundColor = TDColor.backgroundColor
 
         if let contentView = contentView {
             contentView.backButton.addTarget(self, action: #selector(dismissView(_:)), for: .touchUpInside)
@@ -53,7 +53,7 @@ class NoteViewController: TDViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.updateBackgroundColor(backgroundColor: TDColor.darkBackgroundColor)
+        navigationController?.updateBackgroundColor(backgroundColor: TDColor.backgroundColor)
         navigationController?.setNavigationBarHidden(true, animated: animated)
         
         fetchNote()

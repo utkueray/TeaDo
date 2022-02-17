@@ -77,7 +77,7 @@ extension MainViewController: UITableViewDataSource {
                 self.markNote(note: note, isCompleted: false)
                  completionHandler(true)
             })
-            markNote.backgroundColor = TDColor.darkComponentColor
+            markNote.backgroundColor = TDColor.componentColor
         }
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [markNote])
