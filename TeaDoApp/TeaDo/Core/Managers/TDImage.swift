@@ -12,5 +12,5 @@ struct TDImage {
     
     static let logo = UIImage(named:"leafIcon.png")?.withTintColor(TDColor.logoColor)
     static let backButton = UIImage(named:"back.png")
-    static let addButton = UIImage(systemName: "plus")
+    static let addButton = UIImage(named: "plus")?.withTintColor(TDColor.componentColor)
 }
