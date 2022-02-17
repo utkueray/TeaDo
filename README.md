@@ -35,4 +35,4 @@ pip install -r requirements.txt
 - Open TeaDoApp/TeaDo.xcodeproj
 - It may require to sign in with apple developer account under Project/TeaDo Target/Signing & Capabilities
 
-## App won't run with a real device since backend runs on local network which device won't be able to see. Instead you should use simulator to run the app.
+## Since the backend runs on local network, app won't be able to run on a real device. Instead you should use simulator to run the app on the same device you are running the backend.
