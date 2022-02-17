@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class ToDoCell: TDTableViewCell {
-    
     var isNote: Bool!
     var isCompleted: Bool!
     
@@ -54,8 +53,10 @@ class ToDoCell: TDTableViewCell {
         self.isNote = isNote
         self.isCompleted = isCompleted
         
+        self.statusButton.isHidden = isNote
+
         if !isNote {
-            statusButton.isSelected = isCompleted
+            self.statusButton.isSelected = isCompleted
         }
         
         setupUI()
@@ -73,10 +74,7 @@ class ToDoCell: TDTableViewCell {
     private func setupUI() {
         self.backgroundColor = .clear
         
-        if !self.isNote {
-            contentView.addSubview(statusButton)
-        }
-        
+        contentView.addSubview(statusButton)
         contentView.addSubview(titleLabel)
         contentView.addSubview(subTitleLabel)
         contentView.addSubview(seperator)
@@ -98,30 +96,17 @@ extension ToDoCell {
     
     private func setupConstraints() {
         
-        if !self.isNote {
-            statusButton.snp.makeConstraints { make in
-                make.centerY.equalTo(snp.centerY)
-                make.left.equalTo(snp.left)
-                make.height.width.equalTo(24)
-            }
-            
-            titleLabel.snp.makeConstraints { make in
-                make.top.equalTo(snp.top)
-                make.left.equalTo(statusButton.snp.right).offset(8)
-                make.right.equalTo(snp.right).offset(-32)
-                make.height.equalTo(30)
-            }
-        } else {
-            if contentView.subviews.contains(statusButton) {
-                statusButton.removeFromSuperview()
-            }
-            
-            titleLabel.snp.makeConstraints { make in
-                make.top.equalTo(snp.top)
-                make.left.equalTo(snp.left)
-                make.right.equalTo(snp.right).offset(-32)
-                make.height.equalTo(30)
-            }
+        statusButton.snp.makeConstraints { make in
+            make.centerY.equalTo(snp.centerY)
+            make.right.equalTo(snp.right).offset(-16)
+            make.height.width.equalTo(24)
+        }
+        
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(snp.top)
+            make.left.equalTo(snp.left)
+            make.right.equalTo(snp.right).offset(-48)
+            make.height.equalTo(30)
         }
         
         subTitleLabel.snp.makeConstraints { make in
@@ -137,5 +122,6 @@ extension ToDoCell {
             make.right.equalTo(snp.right)
             make.height.equalTo(1)
         }
+        
     }
 }

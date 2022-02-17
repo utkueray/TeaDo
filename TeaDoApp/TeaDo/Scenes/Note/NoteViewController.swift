@@ -69,7 +69,6 @@ class NoteViewController: TDViewController {
 extension NoteViewController: NoteDisplayLogic {
     
     func displaySuccess(viewModel: NoteScene.NoteFetch.ViewModel) {
-        hideHUD()
         if let note = viewModel.note {
             contentView?.titleTextField.text = note.title
             contentView?.bodyTextView.text = note.body
@@ -78,18 +77,17 @@ extension NoteViewController: NoteDisplayLogic {
     }
     
     func displayUpdate(viewModel: NoteScene.Update.ViewModel) {
-        hideHUD()
         self.navigationController?.popViewController(animated: true)
     }
     
     func displayCreate(viewModel: NoteScene.Create.ViewModel) {
-        addHUD()
         self.navigationController?.popViewController(animated: true)
     }
     
     func displayNetworkError(message: String) {
-        errorHUD()
-        showError(message: message)
+        showError(message: message) {
+            self.saveChanges()
+        }
     }
 }
 
@@ -101,19 +99,29 @@ extension NoteViewController {
     }
     
     func saveChanges() {
-        if self.note == nil {
-            createNote()
+        if !(contentView?.titleTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false &&
+            (contentView?.bodyTextView.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ||
+             contentView?.bodyTextView.text == "What's on your mind ..?")) {
+            if self.note == nil {
+                createNote()
+            } else {
+                updateNote()
+            }
         } else {
-            updateNote()
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
     func updateNote() {
-        if  let contentView = contentView,
-            let note = self.note {
-            note.title = contentView.titleTextField.text
-            note.body = contentView.bodyTextView.text
-            note.isNote = !contentView.toggle.isOn
+        if  let contentView = contentView {
+            let note = Note(listId: self.note.listId,
+                            title:
+                                contentView.titleTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView.titleTextField.text,
+                            body:
+                                contentView.bodyTextView.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView.bodyTextView.text,
+                            isNote: !contentView.toggle.isOn,
+                            isComplete: self.note.isCompleted,
+                            uuid: self.note.uuid)
             
             let request = NoteScene.Update.Request(note: note)
             interactor?.updateNote(request: request)
@@ -123,10 +131,11 @@ extension NoteViewController {
     func createNote() {
         if  let contentView = contentView,
             self.note == nil {
-            
             let note = Note(listId: nil,
-                            title: contentView.titleTextField.text,
-                            body: contentView.bodyTextView.text,
+                            title:
+                                contentView.titleTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView.titleTextField.text,
+                            body:
+                                contentView.bodyTextView.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView.bodyTextView.text,
                             isNote: !contentView.toggle.isOn,
                             isComplete: false,
                             uuid: UIDevice.current.identifierForVendor!.uuidString)
@@ -137,7 +146,7 @@ extension NoteViewController {
     }
     
     @objc func updateIsNote(_ sender: UISwitch) {
-        updateNote()
+
     }
 
     @objc func dismissView(_ sender: AnyObject) {
@@ -152,7 +161,6 @@ extension NoteViewController {
 // MARK: UITextFieldDelegate
 extension NoteViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
-        updateNote()
     }
 }
 
@@ -167,8 +175,6 @@ extension NoteViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "What's on your mind ..?"
-        } else {
-            updateNote()
         }
     }
 }

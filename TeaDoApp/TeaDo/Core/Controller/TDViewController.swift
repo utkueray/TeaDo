@@ -38,9 +38,11 @@ class TDViewController: UIViewController {
 
 // MARK: - AlertController
 extension TDViewController {
-    public func showError(message: String) {
+    public func showError(message: String, completion: @escaping () -> Void) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            completion()
+        }))
         present(alert, animated: true, completion: nil)
     }
 }

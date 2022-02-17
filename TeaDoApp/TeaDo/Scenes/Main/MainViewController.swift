@@ -49,18 +49,18 @@ class MainViewController: TDViewController {
 extension MainViewController: MainDisplayLogic {
     
     func displaySuccess(viewModel: MainScene.Main.ViewModel) {
-        successHUD()
+        hideHUD()
         contentView?.tableView.reloadData()
     }
     
     func displayDeletion(viewModel: MainScene.Delete.ViewModel) {
-        showHUD()
         fetchList()
     }
     
     func displayNetworkError(message: String) {
-        errorHUD()
-        showError(message: message)
+        showError(message: message) {
+            self.fetchList()
+        }
     }
 }
 
