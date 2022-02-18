@@ -89,6 +89,7 @@ extension MainViewController: MainDisplayLogic {
 // MARK: Methods
 extension MainViewController {
     func fetchList() {
+        showHUD()
         let request = MainScene.Main.Request(uuid: UIDevice.current.identifierForVendor!.uuidString)
         interactor?.fetchList(request: request)
     }

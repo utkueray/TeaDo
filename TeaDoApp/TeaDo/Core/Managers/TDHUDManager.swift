@@ -21,6 +21,10 @@ public class TDHUDManager {
     }
     
     public func hideHUD() {
+        Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(hide), userInfo: nil, repeats: false)
+    }
+    
+    @objc private func hide() {
         ProgressHUD.dismiss()
     }
     
