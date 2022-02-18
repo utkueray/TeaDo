@@ -20,7 +20,11 @@ class MainViewController: TDViewController {
     var interactor: MainBusinessLogic?
     var router: (NSObjectProtocol & MainRoutingLogic & MainDataPassing)?
     var contentView: MainView?
+    var isSearch: Bool = false
+    var searchText: String?
+    var filteredTableData:[Note]?
     
+
     convenience init() {
         self.init(nibName:nil, bundle:nil)
         configure()
@@ -55,6 +59,12 @@ extension MainViewController: MainDisplayLogic {
         
         if let count = viewModel.list?.count {
             contentView?.dataLabel.text = "\(count) tea"
+        }
+        
+        if isSearch {
+            filteredTableData = interactor?.list?.filter {
+                $0.title?.range(of: searchText ?? "", options: .caseInsensitive, range: nil, locale: nil) != nil
+            }
         }
         
         contentView?.tableView.reloadData()

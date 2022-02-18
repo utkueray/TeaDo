@@ -14,11 +14,15 @@ extension MainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return interactor?.list?.count ?? 0
+        return isSearch == true ? filteredTableData?.count ?? 0 : interactor?.list?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 61.0
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 64.0
     }
 }
 
@@ -26,14 +30,43 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ToDoCell.self), for:indexPath) as! ToDoCell
         
-        if let item = interactor?.list?[indexPath.row] {
-            cell.configure(isNote: item.isNote ?? true,
-                           isCompleted: item.isCompleted ?? false)
-            
-            cell.setupTexts(title: item.title ?? "", subTitle: item.body ?? "", strikeThrough: item.isCompleted ?? false)
+        if (isSearch) {
+            if let item = filteredTableData?[indexPath.row] {
+                cell.configure(isNote: item.isNote ?? true,
+                               isCompleted: item.isCompleted ?? false)
+                
+                cell.setupTexts(title: item.title ?? "", subTitle: item.body ?? "", strikeThrough: item.isCompleted ?? false)
+            }
+        } else {
+            if let item = interactor?.list?[indexPath.row] {
+                cell.configure(isNote: item.isNote ?? true,
+                               isCompleted: item.isCompleted ?? false)
+                
+                cell.setupTexts(title: item.title ?? "", subTitle: item.body ?? "", strikeThrough: item.isCompleted ?? false)
+            }
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 64))
+        
+        let searchBar = UISearchBar(frame: headerView.frame)
+        searchBar.searchBarStyle = .minimal
+        searchBar.placeholder = NSLocalizedString("search", comment: "")
+        searchBar.backgroundImage = UIImage(color: TDColor.backgroundColor)
+        searchBar.backgroundColor = TDColor.backgroundColor
+        searchBar.tintColor = TDColor.componentColor
+        searchBar.searchTextField.textColor = TDColor.titleColor
+        searchBar.searchTextField.leftView?.tintColor = TDColor.componentColor
+        searchBar.searchTextField.clearButtonMode = .whileEditing
+        searchBar.isTranslucent = false
+        searchBar.sizeToFit()
+
+        searchBar.delegate = self
+        headerView.addSubview(searchBar)
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -46,11 +79,19 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            if let note = interactor?.list?[indexPath.row] {
-                deleteNote(id: note.listId)
-                interactor?.list?.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
+            if isSearch {
+                if let note = filteredTableData?[indexPath.row] {
+                    filteredTableData?.remove(at: indexPath.row)
+                    deleteNote(id: note.listId)
+                }
+            } else {
+                if let note = interactor?.list?[indexPath.row] {
+                    interactor?.list?.remove(at: indexPath.row)
+                    deleteNote(id: note.listId)
+                }
             }
+            tableView.deleteRows(at: [indexPath], with: .fade)
+
             break
         default:
             break
@@ -82,5 +123,26 @@ extension MainViewController: UITableViewDataSource {
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [markNote])
         return swipeConfiguration
+    }
+}
+
+//MARK: UISearchBarDelegate
+extension MainViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if let tableView = contentView?.tableView {
+            self.searchText = searchText
+
+            if searchText.count == 0 {
+                isSearch = false
+                tableView.reloadData()
+            } else {
+                isSearch = true
+                filteredTableData = interactor?.list?.filter {
+                    $0.title?.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+                }
+                
+                tableView.reloadData()
+            }
+        }
     }
 }
