@@ -8,6 +8,10 @@
 import Foundation
 import ProgressHUD
 
+/*
+ Custom singleton class for easy to use loading animations
+ */
+
 public class TDHUDManager {
     static let shared = TDHUDManager()
     

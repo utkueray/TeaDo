@@ -57,9 +57,7 @@
 		96EB292027B5690000631D9B /* TDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB291F27B5690000631D9B /* TDLabel.swift */; };
 		96EB292327B569B200631D9B /* TDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB292227B569B200631D9B /* TDViewController.swift */; };
 		96EB292527B56A4700631D9B /* TDNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB292427B56A4700631D9B /* TDNavigationController.swift */; };
-		96EB292E27B56F0900631D9B /* AppWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB292727B56F0900631D9B /* AppWorker.swift */; };
 		96EB292F27B56F0900631D9B /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB292827B56F0900631D9B /* AppRouter.swift */; };
-		96EB293027B56F0900631D9B /* AppModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96EB292927B56F0900631D9B /* AppModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,9 +112,7 @@
 		96EB291F27B5690000631D9B /* TDLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDLabel.swift; sourceTree = "<group>"; };
 		96EB292227B569B200631D9B /* TDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDViewController.swift; sourceTree = "<group>"; };
 		96EB292427B56A4700631D9B /* TDNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDNavigationController.swift; sourceTree = "<group>"; };
-		96EB292727B56F0900631D9B /* AppWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWorker.swift; sourceTree = "<group>"; };
 		96EB292827B56F0900631D9B /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
-		96EB292927B56F0900631D9B /* AppModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,8 +307,6 @@
 			children = (
 				96A1BDB627B563A800AA3E24 /* AppDelegate.swift */,
 				96EB292827B56F0900631D9B /* AppRouter.swift */,
-				96EB292927B56F0900631D9B /* AppModels.swift */,
-				96EB292727B56F0900631D9B /* AppWorker.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -474,7 +468,6 @@
 				96EB290827B5683A00631D9B /* MainRouter.swift in Sources */,
 				96EB291027B5687600631D9B /* TDView.swift in Sources */,
 				96555F0927B9837100062826 /* MainViewControllerExtension.swift in Sources */,
-				96EB292E27B56F0900631D9B /* AppWorker.swift in Sources */,
 				96555F0327B9829E00062826 /* TDTableViewCell.swift in Sources */,
 				96EB292F27B56F0900631D9B /* AppRouter.swift in Sources */,
 				96555EE627B941BD00062826 /* TeaDoMiddlewareError.swift in Sources */,
@@ -503,7 +496,6 @@
 				9644DA8B27BAE38400ADC3D0 /* NoteWorker.swift in Sources */,
 				9644DA9227BAEB1100ADC3D0 /* TDFont.swift in Sources */,
 				96EB290B27B5683A00631D9B /* MainInteractor.swift in Sources */,
-				96EB293027B56F0900631D9B /* AppModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

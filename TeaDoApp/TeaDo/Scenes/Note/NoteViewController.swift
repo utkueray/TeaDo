@@ -72,6 +72,7 @@ class NoteViewController: TDViewController {
 // MARK: Display logic
 extension NoteViewController: NoteDisplayLogic {
     
+    // Successfully displayed data
     func displaySuccess(viewModel: NoteScene.NoteFetch.ViewModel) {
         if let note = viewModel.note {
             contentView?.titleTextField.text = note.title
@@ -80,18 +81,22 @@ extension NoteViewController: NoteDisplayLogic {
         }
     }
     
+    // Successfully updated
     func displayUpdate(viewModel: NoteScene.Update.ViewModel) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    // Successfully created
     func displayCreate(viewModel: NoteScene.Create.ViewModel) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    // Successfully deleted
     func displayDeletion(viewModel: NoteScene.Delete.ViewModel) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    // Network error occured
     func displayNetworkError(message: String) {
         showError(message: message) {
         }
@@ -101,10 +106,12 @@ extension NoteViewController: NoteDisplayLogic {
 // MARK: Methods
 extension NoteViewController {
     
+    // Start note presentation
     func fetchNote() {
         interactor?.fetchNote(note: self.note)
     }
     
+    // Save changes if it's not an empty note, then delete it
     func saveChanges() {
         if checkIfNoteUpdated() {
             let titleText = contentView?.titleTextField.text ?? ""
@@ -127,6 +134,7 @@ extension NoteViewController {
         }
     }
     
+    // Check if there have been any changes
     func checkIfNoteUpdated() -> Bool {
         // check if note updated
         let titleText = contentView?.titleTextField.text ?? ""
@@ -142,6 +150,7 @@ extension NoteViewController {
         return true
     }
     
+    // Start update request for the note
     func updateNote() {
         if  let contentView = contentView {
             let note = Note(listId: self.note.listId,
@@ -156,6 +165,7 @@ extension NoteViewController {
         }
     }
     
+    // Start create request for the note
     func createNote() {
         if  let contentView = contentView,
             self.note == nil {
@@ -171,20 +181,24 @@ extension NoteViewController {
         }
     }
     
+    // Start delete request for the note
     func deleteNote(id:Int!) {
         let request = NoteScene.Delete.Request(uuid: UIDevice.current.identifierForVendor!.uuidString,
                                                id: id)
         interactor?.deleteNote(request: request)
     }
     
+    // Method for toggle button
     @objc func updateIsNote(_ sender: UISwitch) {
 
     }
 
+    // Save changes on view dismiss
     @objc func dismissView(_ sender: AnyObject) {
         saveChanges()
     }
     
+    // Dismiss keyboard if user touches somewhere else
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -193,6 +207,7 @@ extension NoteViewController {
 // MARK: UITextFieldDelegate
 extension NoteViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
     }
 }
 

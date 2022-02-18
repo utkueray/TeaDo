@@ -9,7 +9,6 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var appWorker: AppWorker? = AppWorker()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
                         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -24,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 // MARK: Methods
 extension AppDelegate {
+    // Configure middleware
     func setupMiddleware() {
         let configuration = TeaDoMiddlewareConfiguration()
         configuration.apiGatewayUrl = "http://localhost:8000/api/v1/teado/"

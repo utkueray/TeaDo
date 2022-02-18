@@ -14,7 +14,7 @@ final class AppRouter {
     public var appViewController: TDNavigationController!
 
     private init() {
-
+        // Setup window
         let splashController = UIViewController()
         splashController.view.backgroundColor = UIColor.black
         
@@ -27,21 +27,12 @@ final class AppRouter {
     
 
     public func start() {
+        // Initialize TDNavigationController
         appViewController = TDNavigationController(rootViewController: MainViewController())
         setRootViewController(viewController: appViewController)
     }
     
     private func setRootViewController(viewController: UIViewController) {
         window?.rootViewController = viewController
-    }
-}
-
-// MARK: Present ViewController
-extension AppRouter {
-    
-    public func present(viewController: UIViewController) {
-        DispatchQueue.main.async {
-            self.window.rootViewController?.present(viewController, animated: true, completion: nil)
-        }
     }
 }

@@ -27,6 +27,7 @@ class TDNavigationController: UINavigationController {
         return true
     }
     
+    // Enable landscape mode only for iPad, both iPhone and iPad can user Portrait
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return UIInterfaceOrientationMask.portrait
@@ -38,6 +39,7 @@ class TDNavigationController: UINavigationController {
 
 extension UINavigationController {
     
+    // Should be called from ViewControllers to update navigation bar
     public func updateBackgroundColor(backgroundColor: UIColor) {
         self.navigationBar.setBackgroundImage(UIImage(color: backgroundColor), for: .default)
         self.navigationBar.tintColor = TDColor.componentColor
@@ -48,23 +50,10 @@ extension UINavigationController {
         self.navigationBar.isTranslucent = false
         self.navigationBar.isOpaque = true
     }
-    
-    public func popToViewController(ofClass: AnyClass, animated: Bool = true) {
-        for viewController in viewControllers.reversed() where viewController.isKind(of: ofClass) {
-            popToViewController(viewController, animated: animated)
-            break
-        }
-    }
-    
-    public func hasViewController(ofClass: AnyClass) -> Bool {
-        for viewController in viewControllers where viewController.isKind(of: ofClass) {
-            return true
-        }
-        return false
-    }
 }
 
 extension UIImage {
+    // Extension to use UIColor as UIImage
     convenience init?(color: UIColor) {
         self.init()
         guard let maskImage = self.cgImage else { return nil }

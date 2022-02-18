@@ -53,6 +53,7 @@ class MainViewController: TDViewController {
 // MARK: Display logic
 extension MainViewController: MainDisplayLogic {
     
+    // Successfully fetched
     func displaySuccess(viewModel: MainScene.Main.ViewModel) {
         hideHUD()
         
@@ -69,16 +70,19 @@ extension MainViewController: MainDisplayLogic {
         contentView?.tableView.reloadData()
     }
     
+    // Successfully updated
     func displayUpdate(viewModel: NoteScene.Update.ViewModel) {
         hideHUD()
         fetchList()
         contentView?.tableView.reloadData()
     }
     
+    // Successfully deleted
     func displayDeletion(viewModel: MainScene.Delete.ViewModel) {
         fetchList()
     }
     
+    // Network error occured
     func displayNetworkError(message: String) {
         showError(message: message) {
             self.fetchList()
@@ -88,18 +92,21 @@ extension MainViewController: MainDisplayLogic {
 
 // MARK: Methods
 extension MainViewController {
+    // Start list request for objects
     func fetchList() {
         showHUD()
         let request = MainScene.Main.Request(uuid: UIDevice.current.identifierForVendor!.uuidString)
         interactor?.fetchList(request: request)
     }
     
+    // Start delete request for the object
     func deleteNote(id:Int!) {
         let request = MainScene.Delete.Request(uuid: UIDevice.current.identifierForVendor!.uuidString,
                                                id: id)
         interactor?.deleteNote(request: request)
     }
     
+    // Start update request for the object
     func markNote(note: Note!, isCompleted: Bool!) {
         note.isCompleted = isCompleted
         
@@ -107,6 +114,7 @@ extension MainViewController {
         interactor?.updateNote(request: request)
     }
     
+    // Route to note creating screen
     @objc func createNote(_ sender: AnyObject) {
         router?.routeToNote(note: nil)
     }
