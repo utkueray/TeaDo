@@ -36,9 +36,13 @@ API docs can be found under following url after running the backend. Also you ca
 http://localhost:8000/docs/
 ```
 
-
-
 ## iOS Project Requirements
+
+<p align="center">
+<img src="./start_main.gif" alt="Start GIF">
+<img src="./create_note.gif" alt="Create Note GIF">
+</p>
+
 > __This project is written in Swift 5 and Xcode 13 is required for development.__
 
 Before you begin, you should already have the Xcode downloaded and set up correctly. You can find a guide on how to do this here: [Setting up Xcode](https://developer.apple.com/xcode/)
