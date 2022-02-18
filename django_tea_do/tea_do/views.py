@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from tea_do.serializers import TeaDoSerializer
 from tea_do.models import TeaDo
 
+# List Request, returns all the objects with the given user's device uuid.
 @api_view(['POST'])
 def list(request):
     if request.method == 'POST':
@@ -23,6 +24,7 @@ def list(request):
             return Response({'data': serializer.data}, status=status.HTTP_200_OK)
     return Response({'data', []}, status=status.HTTP_400_BAD_REQUEST)
 
+# Creat Request, creates a new object in the database.
 @api_view(['POST'])
 def create(request):
     if request.method == 'POST':       
@@ -32,7 +34,7 @@ def create(request):
             return Response({'data': [serializer.data]}, status=status.HTTP_201_CREATED)
         return Response({'data', []}, status=status.HTTP_400_BAD_REQUEST)
         
-
+# Update Request, updates the object with the given id which is the primary key
 @api_view(['POST'])
 def update(request):
     if request.method == 'POST':
@@ -50,6 +52,7 @@ def update(request):
             return Response({'data': [serializer.data]}, status=status.HTTP_200_OK)
         return Response({'data', []}, status=status.HTTP_400_BAD_REQUEST)
 
+# Remove Request, removed the object with the given id
 @api_view(['POST'])
 def remove(request):
     if request.method == 'POST':
