@@ -23,7 +23,7 @@ class ToDoCell: TDTableViewCell {
         let label = TDLabel()
         label.textColor = TDColor.titleColor
         label.font = TDFont.cellTitleFont
-        label.backgroundColor = .clear
+        label.backgroundColor = TDColor.clearColor
         label.textAlignment = .left
         label.numberOfLines = 1
         return label
@@ -33,7 +33,7 @@ class ToDoCell: TDTableViewCell {
         let label = TDLabel()
         label.textColor = TDColor.subTitleColor
         label.font = TDFont.cellSubTitleFont
-        label.backgroundColor = .clear
+        label.backgroundColor = TDColor.clearColor
         label.textAlignment = .left
         label.numberOfLines = 1
         return label
@@ -88,7 +88,7 @@ class ToDoCell: TDTableViewCell {
     
     // MARK: setupUI
     private func setupUI() {
-        self.backgroundColor = .clear
+        self.backgroundColor = TDColor.clearColor
         
         contentView.addSubview(statusButton)
         contentView.addSubview(titleLabel)

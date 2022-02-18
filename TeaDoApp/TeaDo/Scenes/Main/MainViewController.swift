@@ -38,7 +38,7 @@ class MainViewController: TDViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = TDColor.whiteColor
         
         contentView?.addButton.addTarget(self, action: #selector(createNote(_:)), for: .touchUpInside)
     }
@@ -57,7 +57,7 @@ extension MainViewController: MainDisplayLogic {
         hideHUD()
         
         if let count = viewModel.list?.count {
-            contentView?.dataLabel.text = "\(count) tea"
+            contentView?.dataLabel.text = "\(count) " + NSLocalizedString("tea", comment: "")
         }
         
         if isSearch {

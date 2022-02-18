@@ -12,7 +12,7 @@ class TDTableView: UITableView {
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
-        self.backgroundColor = .clear
+        self.backgroundColor = TDColor.clearColor
         self.showsVerticalScrollIndicator = false
         self.showsHorizontalScrollIndicator = false
         self.separatorStyle = .singleLine

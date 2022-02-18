@@ -49,7 +49,7 @@ class NoteView: TDView {
         let toggleLabel = TDLabel()
         toggleLabel.textColor = TDColor.titleColor
         toggleLabel.font = TDFont.cellSubTitleFont
-        toggleLabel.backgroundColor = .clear
+        toggleLabel.backgroundColor = TDColor.clearColor
         toggleLabel.textAlignment = .left
         toggleLabel.numberOfLines = 1
         toggleLabel.text = NSLocalizedString("toggleTitle", comment: "")
@@ -60,7 +60,7 @@ class NoteView: TDView {
         let textField = UITextField()
         textField.textColor = TDColor.titleColor
         textField.font = TDFont.titleFont
-        textField.backgroundColor = .clear
+        textField.backgroundColor = TDColor.clearColor
         textField.textAlignment = .left
         textField.attributedPlaceholder = NSAttributedString(
             string: NSLocalizedString("title", comment: ""),
@@ -75,7 +75,7 @@ class NoteView: TDView {
         textView.textColor = TDColor.subTitleColor
         textView.tintColor = TDColor.componentColor
         textView.font = TDFont.bodyFont
-        textView.backgroundColor = .clear
+        textView.backgroundColor = TDColor.clearColor
         textView.textAlignment = .left
         textView.text = NSLocalizedString("bodyPlaceHolder", comment: "")
         textView.isUserInteractionEnabled = true

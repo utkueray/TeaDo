@@ -17,7 +17,7 @@ class TDTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.backgroundColor = .clear
+        self.backgroundColor = TDColor.clearColor
         self.didSetConstraints = false
     }
     

@@ -35,7 +35,7 @@ class MainView: TDView {
     lazy var tableView: TDTableView = {
         let tableView = TDTableView()
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = TDColor.clearColor
         
         tableView.register(ToDoCell.self, forCellReuseIdentifier: String(describing: ToDoCell.self))
         return tableView
@@ -59,7 +59,7 @@ class MainView: TDView {
         let label = TDLabel()
         label.textColor = TDColor.componentColor
         label.font = TDFont.cellSubTitleFont
-        label.backgroundColor = .clear
+        label.backgroundColor = TDColor.clearColor
         label.textAlignment = .center
         label.numberOfLines = 1
         return label

@@ -23,5 +23,7 @@ struct TDColor {
     static let backgroundColor = UIColor(named: "backgroundColor")!
     static let navigationBarColor = UIColor(named: "navigationBarColor")!
     static let componentColor = UIColor(named: "componentColor")!
-    
+    static let clearColor = UIColor.clear
+    static let whiteColor = UIColor.white
+
 }

@@ -23,6 +23,6 @@ class TDView: UIView {
     // MARK: User Interface
     private func setupUI() {
         
-        backgroundColor = .clear
+        backgroundColor = TDColor.clearColor
     }
 }
