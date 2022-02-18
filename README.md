@@ -38,10 +38,22 @@ http://localhost:8000/docs/
 
 
 
-## iOS App Requirements
-- XCode 13
-- Simulators (which comes with XCode)
-- Open TeaDoApp/TeaDo.xcodeproj
-- It may require to sign in with apple developer account under Project/TeaDo Target/Signing & Capabilities
+## iOS Project Requirements
+> __This project is written in Swift 5 and Xcode 13 is required for development.__
 
-## Since the backend runs on local network, app won't be able to run on a real device. Instead you should use simulator to run the app on the same device you are running the backend.
+Before you begin, you should already have the Xcode downloaded and set up correctly. You can find a guide on how to do this here: [Setting up Xcode](https://developer.apple.com/xcode/)
+
+## Setting up the iOS Project
+
+1. Download the project from the repository. You can do this either by forking and cloning the repository (recommended if you plan on pushing changes) or by downloading it as a ZIP file and extracting it. OR
+```
+$ git clone https://github.com/utkueray/TeaDo.git
+```
+
+2. Open `TeaDo.xcodeproj` from the TeaDoApp folder.
+
+3. Build the project (⌘+B) and check for any errors.
+
+4. Run the app (⌘+R).and test it.
+
+> __Since the backend runs on local network, app won't be able to run on a real device. Instead you should use simulator to run the app on the same device you are running the backend.__
