@@ -29,6 +29,12 @@ You can install all the required dependencies by running
 pip install -r requirements.txt
 ```
 
+## API Docs
+API docs can be found under following url after running the backend.
+```
+http://localhost:8000/docs/
+```
+
 ## iOS App Requirements
 - XCode 13
 - Simulators (which comes with XCode)
