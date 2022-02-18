@@ -102,7 +102,7 @@ extension NoteViewController {
     }
     
     func saveChanges() {
-        if checkIfNoteUpdated() || !checkIfNoteContainsWhiteSpace() {
+        if checkIfNoteUpdated() && checkIfNoteContainsWhiteSpace() {
             if self.note == nil {
                 createNote()
             } else {
@@ -133,12 +133,14 @@ extension NoteViewController {
         // check if body is only whitespaces
         // check if body is only placeholder
         if let contentView = contentView,
-        contentView.titleTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false,
-       (contentView.bodyTextView.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ||
-        contentView.bodyTextView.text == NSLocalizedString("bodyPlaceHolder", comment: "")) {
-            return false
+           let titleText = contentView.titleTextField.text,
+           let bodyText = contentView.bodyTextView.text {
+            if (!titleText.trimmingCharacters(in: .whitespaces).isEmpty) || (!bodyText.trimmingCharacters(in: .whitespaces).isEmpty && !(bodyText == NSLocalizedString("bodyPlaceHolder", comment: ""))) {
+                return true
+            }
+               return false
         }
-        return true
+        return false
     }
     
     func updateNote() {

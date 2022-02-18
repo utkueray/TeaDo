@@ -23,7 +23,6 @@ class MainViewController: TDViewController {
     var isSearch: Bool = false
     var searchText: String?
     var filteredTableData:[Note]?
-    
 
     convenience init() {
         self.init(nibName:nil, bundle:nil)
