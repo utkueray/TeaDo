@@ -11,6 +11,7 @@ protocol NoteBusinessLogic {
     func fetchNote(note: Note?)
     func updateNote(request: NoteScene.Update.Request)
     func createNote(request: NoteScene.Create.Request)
+    func deleteNote(request: NoteScene.Delete.Request)
 }
 
 protocol NoteDataStore {
@@ -43,6 +44,16 @@ class NoteInteractor: NoteBusinessLogic, NoteDataStore {
                 self.presenter?.presentNetworkError(error: response.error!)
             } else {
                 self.presenter?.presentCreate(response: response)
+            }
+        }
+    }
+    
+    func deleteNote(request: NoteScene.Delete.Request) {
+        worker.sendDeleteRequest(request: request) { (response) in
+            if (response.error != nil) {
+                self.presenter?.presentNetworkError(error: response.error!)
+            } else {
+                self.presenter?.presentAfterDeletion(response: response)
             }
         }
     }

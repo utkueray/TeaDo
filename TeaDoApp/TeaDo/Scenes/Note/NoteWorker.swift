@@ -34,4 +34,13 @@ class NoteWorker {
             completion(response)
         }
     }
+    
+    func sendDeleteRequest(request: NoteScene.Delete.Request, completion: @escaping (NoteScene.Delete.Response) -> Void) {
+        
+        let deleteRequest = DeleteRequest(id: request.id, uuid: request.uuid)
+        TeaDoMiddlewareClient.shared.request(route: .delete(request: deleteRequest), responseType: DeleteResponse.self) { (response, error, errorDescription) in
+            let response = NoteScene.Delete.Response(result: response?.data, error: error)
+            completion(response)
+        }
+    }
 }

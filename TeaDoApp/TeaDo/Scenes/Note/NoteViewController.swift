@@ -12,6 +12,7 @@ protocol NoteDisplayLogic: AnyObject {
     func displaySuccess(viewModel: NoteScene.NoteFetch.ViewModel)
     func displayUpdate(viewModel: NoteScene.Update.ViewModel)
     func displayCreate(viewModel: NoteScene.Create.ViewModel)
+    func displayDeletion(viewModel: NoteScene.Delete.ViewModel)
     func displayNetworkError(message: String)
 }
 
@@ -87,9 +88,12 @@ extension NoteViewController: NoteDisplayLogic {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func displayDeletion(viewModel: NoteScene.Delete.ViewModel) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func displayNetworkError(message: String) {
         showError(message: message) {
-            self.saveChanges()
         }
     }
 }
@@ -102,10 +106,20 @@ extension NoteViewController {
     }
     
     func saveChanges() {
-        if checkIfNoteUpdated() && checkIfNoteContainsWhiteSpace() {
+        if checkIfNoteUpdated() {
+            let titleText = contentView?.titleTextField.text ?? ""
+            let bodyText = (contentView?.bodyTextView.text == NSLocalizedString("bodyPlaceHolder", comment: "") ? "" : contentView?.bodyTextView.text) ?? ""
+            
             if self.note == nil {
-                createNote()
+                if !(titleText == "" && bodyText == "") {
+                    createNote()
+                } else {
+                    self.navigationController?.popViewController(animated: true)
+                }
             } else {
+                if (titleText == "" && bodyText == "") {
+                    deleteNote(id: self.note.listId)
+                }
                 updateNote()
             }
         } else {
@@ -115,8 +129,8 @@ extension NoteViewController {
     
     func checkIfNoteUpdated() -> Bool {
         // check if note updated
-        let titleText = contentView?.titleTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView?.titleTextField.text
-        let bodyText = contentView?.bodyTextView.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView?.bodyTextView.text
+        let titleText = contentView?.titleTextField.text ?? ""
+        let bodyText = (contentView?.bodyTextView.text == NSLocalizedString("bodyPlaceHolder", comment: "") ? "" : contentView?.bodyTextView.text) ?? ""
         
         if let contentView = contentView,
            self.note != nil,
@@ -128,28 +142,11 @@ extension NoteViewController {
         return true
     }
     
-    func checkIfNoteContainsWhiteSpace() -> Bool {
-        // check if title is only whitespaces
-        // check if body is only whitespaces
-        // check if body is only placeholder
-        if let contentView = contentView,
-           let titleText = contentView.titleTextField.text,
-           let bodyText = contentView.bodyTextView.text {
-            if (!titleText.trimmingCharacters(in: .whitespaces).isEmpty) || (!bodyText.trimmingCharacters(in: .whitespaces).isEmpty && !(bodyText == NSLocalizedString("bodyPlaceHolder", comment: ""))) {
-                return true
-            }
-               return false
-        }
-        return false
-    }
-    
     func updateNote() {
         if  let contentView = contentView {
             let note = Note(listId: self.note.listId,
-                            title:
-                                contentView.titleTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView.titleTextField.text,
-                            body:
-                                contentView.bodyTextView.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView.bodyTextView.text,
+                            title:contentView.titleTextField.text,
+                            body:contentView.bodyTextView.text,
                             isNote: !contentView.toggle.isOn,
                             isComplete: self.note.isCompleted,
                             uuid: self.note.uuid)
@@ -163,10 +160,8 @@ extension NoteViewController {
         if  let contentView = contentView,
             self.note == nil {
             let note = Note(listId: nil,
-                            title:
-                                contentView.titleTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView.titleTextField.text,
-                            body:
-                                contentView.bodyTextView.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView.bodyTextView.text,
+                            title:contentView.titleTextField.text,
+                            body:contentView.bodyTextView.text,
                             isNote: !contentView.toggle.isOn,
                             isComplete: false,
                             uuid: UIDevice.current.identifierForVendor!.uuidString)
@@ -174,6 +169,12 @@ extension NoteViewController {
             let request = NoteScene.Create.Request(note: note)
             interactor?.createNote(request: request)
         }
+    }
+    
+    func deleteNote(id:Int!) {
+        let request = NoteScene.Delete.Request(uuid: UIDevice.current.identifierForVendor!.uuidString,
+                                               id: id)
+        interactor?.deleteNote(request: request)
     }
     
     @objc func updateIsNote(_ sender: UISwitch) {

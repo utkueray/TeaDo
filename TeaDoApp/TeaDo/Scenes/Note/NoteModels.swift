@@ -52,4 +52,19 @@ struct NoteScene {
             var list: [Note]?
         }
     }
+    
+    enum Delete {
+        struct Request {
+            var uuid: String!
+            var id: Int!
+        }
+
+        struct Response {
+            var result: Result?
+            var error: Error?
+        }
+
+        struct ViewModel {
+        }
+    }
 }

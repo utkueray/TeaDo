@@ -34,15 +34,16 @@ extension MainViewController: UITableViewDataSource {
             if let item = filteredTableData?[indexPath.row] {
                 cell.configure(isNote: item.isNote ?? true,
                                isCompleted: item.isCompleted ?? false)
-                
-                cell.setupTexts(title: item.title ?? "", subTitle: item.body ?? "", strikeThrough: item.isCompleted ?? false)
+                let bodyText = (item.body == NSLocalizedString("bodyPlaceHolder", comment: "") ? "" : item.body) ?? ""
+                cell.setupTexts(title: item.title ?? "", subTitle: bodyText, strikeThrough: item.isCompleted ?? false)
             }
         } else {
             if let item = interactor?.list?[indexPath.row] {
                 cell.configure(isNote: item.isNote ?? true,
                                isCompleted: item.isCompleted ?? false)
                 
-                cell.setupTexts(title: item.title ?? "", subTitle: item.body ?? "", strikeThrough: item.isCompleted ?? false)
+                let bodyText = (item.body == NSLocalizedString("bodyPlaceHolder", comment: "") ? "" : item.body) ?? ""
+                cell.setupTexts(title: item.title ?? "", subTitle: bodyText, strikeThrough: item.isCompleted ?? false)
             }
         }
         

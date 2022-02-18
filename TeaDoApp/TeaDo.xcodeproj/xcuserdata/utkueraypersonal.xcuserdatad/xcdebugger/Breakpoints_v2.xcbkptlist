@@ -35,49 +35,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "489806C1-AD7D-41B7-BB37-FF6AB29627D0"
+            uuid = "D7BD567B-A42E-4B8A-AECF-1BB12BB5FB27"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TeaDo/Scenes/Note/NoteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "checkIfNoteContainsWhiteSpace()"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "updateNote()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6F7B76E3-F36D-438F-8B5F-3CF86ABB4D0B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TeaDo/Scenes/Note/NoteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "checkIfNoteUpdated()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0406D093-8685-44C1-BC8B-5D9B0F501324"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TeaDo/Scenes/Note/NoteViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "checkIfNoteContainsWhiteSpace()"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D7BD567B-A42E-4B8A-AECF-1BB12BB5FB27 - 50b6359c5d8d817e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TeaDo.NoteViewController.updateNote() -&gt; ()"
+                  moduleName = "TeaDo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/utkueraypersonal/Desktop/TeaDo/TeaDoApp/TeaDo/Scenes/Note/NoteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  uuid = "D7BD567B-A42E-4B8A-AECF-1BB12BB5FB27 - 50b6359c5d8d817e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TeaDo.NoteViewController.updateNote() -&gt; ()"
+                  moduleName = "TeaDo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/utkueraypersonal/Desktop/TeaDo/TeaDoApp/TeaDo/Scenes/Note/NoteViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "1366">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

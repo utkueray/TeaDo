@@ -10,6 +10,7 @@ protocol NotePresentationLogic {
     func presentSuccess(response: NoteScene.NoteFetch.Response)
     func presentUpdate(response: NoteScene.Update.Response)
     func presentCreate(response: NoteScene.Create.Response)
+    func presentAfterDeletion(response: NoteScene.Delete.Response)
     func presentNetworkError(error: Error)
 }
 
@@ -30,6 +31,11 @@ class NotePresenter: NotePresentationLogic {
     func presentCreate(response: NoteScene.Create.Response) {
         let viewModel = NoteScene.Create.ViewModel(list: response.list)
         viewController?.displayCreate(viewModel: viewModel)
+    }
+    
+    func presentAfterDeletion(response: NoteScene.Delete.Response) {
+        let viewModel = NoteScene.Delete.ViewModel()
+        viewController?.displayDeletion(viewModel: viewModel)
     }
     
     func presentNetworkError(error: Error) {
