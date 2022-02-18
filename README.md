@@ -30,10 +30,13 @@ pip install -r requirements.txt
 ```
 
 ## API Docs
-API docs can be found under following url after running the backend.
+API docs can be found under following url after running the backend. Also you can checkout the API with the given [postman collection](https://github.com/utkueray/TeaDo/blob/main/TeaDo.postman_collection.json)
+
 ```
 http://localhost:8000/docs/
 ```
+
+
 
 ## iOS App Requirements
 - XCode 13
