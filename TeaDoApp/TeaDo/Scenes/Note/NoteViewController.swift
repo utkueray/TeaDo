@@ -34,7 +34,10 @@ class NoteViewController: TDViewController {
     override func loadView() {
         super.loadView()
         contentView?.titleTextField.delegate = self
+        contentView?.titleTextField.pasteDelegate = self
         contentView?.bodyTextView.delegate = self
+        contentView?.bodyTextView.pasteDelegate = self
+
         view = contentView
     }
     
@@ -162,11 +165,6 @@ extension NoteViewController {
 extension NoteViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
     }
-    
-    func textPasteConfigurationSupporting(_ textPasteConfigurationSupporting: UITextPasteConfigurationSupporting, performPasteOf attributedString: NSAttributedString, to textRange: UITextRange) -> UITextRange {
-        self.contentView?.titleTextField.replace(textRange, withText: attributedString.string)
-        return textRange
-    }
 }
 
 // MARK: UITextViewDelegate
@@ -181,6 +179,26 @@ extension NoteViewController: UITextViewDelegate {
         if textView.text.isEmpty {
             textView.text = NSLocalizedString("bodyPlaceHolder", comment: "")
         }
+    }
+}
+
+// MARK: UITextPasteDelegate
+extension NoteViewController: UITextPasteDelegate {
+    func textPasteConfigurationSupporting(_ textPasteConfigurationSupporting: UITextPasteConfigurationSupporting, performPasteOf attributedString: NSAttributedString, to textRange: UITextRange) -> UITextRange {
+        if let textView = textPasteConfigurationSupporting as? UITextView {
+            let pasteBoard = UIPasteboard.general
+            if pasteBoard.hasStrings {
+                textView.insertText(pasteBoard.string ?? "")
+            }
+        }
+        
+        if let textView = textPasteConfigurationSupporting as? UITextField {
+            let pasteBoard = UIPasteboard.general
+            if pasteBoard.hasStrings {
+                textView.insertText(pasteBoard.string ?? "")
+            }
+        }
+        return textRange
     }
 }
 

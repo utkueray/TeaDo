@@ -14,7 +14,6 @@ class TDViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.backIndicatorImage = TDImage.backButton
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = TDImage.backButton
-        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         self.navigationItem.titleView = generateTitleView()

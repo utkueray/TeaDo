@@ -35,13 +35,14 @@ class MainViewController: TDViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = TDColor.navigationBarColor
+        view.backgroundColor = .white
+        
+        contentView?.addButton.addTarget(self, action: #selector(createNote(_:)), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.updateBackgroundColor(backgroundColor: TDColor.navigationBarColor)
-        addNavigationButton()
         fetchList()
     }
 }
@@ -51,6 +52,11 @@ extension MainViewController: MainDisplayLogic {
     
     func displaySuccess(viewModel: MainScene.Main.ViewModel) {
         hideHUD()
+        
+        if let count = viewModel.list?.count {
+            contentView?.dataLabel.text = "\(count) tea"
+        }
+        
         contentView?.tableView.reloadData()
     }
     
@@ -89,12 +95,6 @@ extension MainViewController {
         
         let request = NoteScene.Update.Request(note: note)
         interactor?.updateNote(request: request)
-    }
-    
-    func addNavigationButton() {
-        let addButton = UIBarButtonItem(image: TDImage.addButton, style: .plain, target: self, action: #selector(createNote(_:)))
-        addButton.tintColor = TDColor.titleColor
-        self.navigationItem.rightBarButtonItem = addButton
     }
     
     @objc func createNote(_ sender: AnyObject) {
