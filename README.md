@@ -58,7 +58,7 @@ $ git clone https://github.com/utkueray/TeaDo.git
 
 3. Build the project (⌘+B) and check for any errors.
 
-4. Run the app (⌘+R).and test it.
+4. Run the app (⌘+R).
 
 > __Since the backend runs on local network, app won't be able to run on a real device. Instead you should use simulator to run the app on the same device you are running the backend.__
 
