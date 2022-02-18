@@ -14,11 +14,12 @@ def list(request):
             body = json.loads(body_unicode)
             uuidBody = body['uuid']
             teaDo = TeaDo.objects.filter(uuid = uuidBody)
+            queryset = teaDo.order_by('-last_modified')
         except TeaDo.DoesNotExist:
             return Response({'data', []}, status=status.HTTP_404_NOT_FOUND)
         
         if teaDo is not None:
-            serializer = TeaDoSerializer(teaDo, many=True)
+            serializer = TeaDoSerializer(queryset, many=True)
             return Response({'data': serializer.data}, status=status.HTTP_200_OK)
     return Response({'data', []}, status=status.HTTP_400_BAD_REQUEST)
 

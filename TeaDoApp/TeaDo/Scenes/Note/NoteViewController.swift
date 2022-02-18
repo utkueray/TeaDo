@@ -102,9 +102,7 @@ extension NoteViewController {
     }
     
     func saveChanges() {
-        if !(contentView?.titleTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false &&
-            (contentView?.bodyTextView.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ||
-             contentView?.bodyTextView.text == NSLocalizedString("bodyPlaceHolder", comment: ""))) {
+        if checkIfNoteUpdated() || !checkIfNoteContainsWhiteSpace() {
             if self.note == nil {
                 createNote()
             } else {
@@ -113,6 +111,33 @@ extension NoteViewController {
         } else {
             self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    func checkIfNoteUpdated() -> Bool {
+        // check if note updated
+        let titleText = contentView?.titleTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView?.titleTextField.text
+        let bodyText = contentView?.bodyTextView.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView?.bodyTextView.text
+        
+        if let contentView = contentView,
+           self.note.title == titleText,
+           self.note.body == bodyText,
+           self.note.isNote == !contentView.toggle.isOn {
+                return false
+            }
+        return true
+    }
+    
+    func checkIfNoteContainsWhiteSpace() -> Bool {
+        // check if title is only whitespaces
+        // check if body is only whitespaces
+        // check if body is only placeholder
+        if let contentView = contentView,
+        contentView.titleTextField.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false,
+       (contentView.bodyTextView.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ||
+        contentView.bodyTextView.text == NSLocalizedString("bodyPlaceHolder", comment: "")) {
+            return false
+        }
+        return true
     }
     
     func updateNote() {
