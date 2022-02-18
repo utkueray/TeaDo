@@ -71,8 +71,14 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let note = interactor?.list?[indexPath.row] {
-            router?.routeToNote(note: note)
+        if isSearch {
+            if let note = filteredTableData?[indexPath.row] {
+                router?.routeToNote(note: note)
+            }
+        } else {
+            if let note = interactor?.list?[indexPath.row] {
+                router?.routeToNote(note: note)
+            }
         }
     }
     

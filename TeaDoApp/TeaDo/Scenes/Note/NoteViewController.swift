@@ -119,6 +119,7 @@ extension NoteViewController {
         let bodyText = contentView?.bodyTextView.text?.trimmingCharacters(in: .whitespaces).isEmpty ?? false ? nil : contentView?.bodyTextView.text
         
         if let contentView = contentView,
+           self.note != nil,
            self.note.title == titleText,
            self.note.body == bodyText,
            self.note.isNote == !contentView.toggle.isOn {
