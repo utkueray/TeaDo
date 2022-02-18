@@ -57,3 +57,8 @@ $ git clone https://github.com/utkueray/TeaDo.git
 4. Run the app (⌘+R).and test it.
 
 > __Since the backend runs on local network, app won't be able to run on a real device. Instead you should use simulator to run the app on the same device you are running the backend.__
+
+## License
+
+This project is currently licensed under the Apache License Version 2.0. A copy of [LICENSE.md](https://github.com/utkueray/TeaDo/blob/main/LICENSE) should be present along with the source code.
+
